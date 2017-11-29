@@ -1,0 +1,119 @@
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Contetn-Type" content="text/html">
+    <meta name="viewport" content="width=device-width" , inital-scale="1">
+    <link href="../import/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>세미나 등록 화면</title>
+</head>
+
+<body>
+    <div id='div_topMenu'> </div>
+
+    <div class="container">
+        <div class="col-md-12">
+            <div class="jumbotron" style="padding-top:20px">
+                <form method="post" action="loginAction.jsp">
+                    <h3 style="text-align: center;">접수자 등록 화면</h3>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">1. 교회명</label>
+                            <input type="text" class="form-control" placeholder="교회명을 입력해주세요." name="churchNAME" maxlength="20">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">2. 작성자 성명</label>
+                                <input type="text" class="form-control" placeholder="작성자의 성명을 입력해주세요." name="writterNAME" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">3. 작성자 연락처</label>
+                                <input type="text" class="form-control" placeholder="작성자의 핸드폰 번호를 입력해주세요." name="writterPHONE" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">4. 주소</label>
+                                <input type="text" class="form-control" placeholder="교회 주소를 입력해주세요." name="churchADDRESS" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">5. Email address</label>
+                                <input type="text" class="form-control" placeholder="Email address를 입력해주세요." name="eMAIL" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">6. 입금자 성명</label>
+                                <input type="text" class="form-control" placeholder="입금자 성명을 입력해주세요." name="depositNAME" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">7. 입금액</label>
+                                <input type="text" class="form-control" placeholder="입금하실 금액" name="depositAMOUNT" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">8. 입금일</label>
+                                <input type="text" class="form-control" placeholder="입금일 입니다." name="depositDATE" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">9. 참석인원(초등생이상, 8세이상)</label>
+                                <input type="number" class="form-control" placeholder="참석 인원을 입력해주세요." name="attendance" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <label for="exampleFormControlInput1">10. 참석자명단(단체)</label>
+                                <textarea class="form-control" rows="10" placeholder="단체참석시 참석자 명단을 입력해주세요." name="TOTALattendance"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="span8">
+                                <input type="submit" class="btn btn-primary form-control" value="신청서 제출">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-lg-3"> </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../import/js/bootstrap.min.js"></script>
+</body>
+
+</html>
