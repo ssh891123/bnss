@@ -11,10 +11,45 @@
 
 <body>
     <div id='div_topMenu'> </div>
-    <div id='div_leftMenu'> </div>
+
+    <div class="col-md-9">
+        <div id='div_leftMenu'> </div>
+        <!-- <div class="page-header">
+            <h1>회원가입
+                <small>세미나 신청 회원가입</small>
+            </h1>
+        </div> -->
+        <div class="jumbotron" style="padding-top:20px">
+            <form class="form-horizontal">
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputEmail">ID</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" placeholder="ID" readonly>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" id="inputEmail" type="email" placeholder="이메일">
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
+                    <div class="col-sm-6">
+                        <input type="tel" class="form-control" id="inputNumber" placeholder="- 없이 입력해 주세요" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
 
     <div class="container" style="margin-top: 50px">
+            
         <div class="col-md-12">
+            
             <div class="jumbotron" style="padding-top:20px">
                 <form method="post" action="loginAction.jsp">
                     <h3 style="text-align: center;">접수자 등록 화면</h3>
