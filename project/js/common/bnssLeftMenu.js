@@ -8,7 +8,7 @@ $( document ).ready(function() {
     '<nav class="nav-sidebar navbar-fixed-left hidden-xs-down" > ' +
     '<ul class="nav flex-column"> ' +
     '<li class="active">  ' +
-    '<a href="javascript:;">Home</a> ' +
+    '<a  data-class="navbar-fixed-left" href="javascript:;">신청자 접수화면</a> ' +
     '</li> ' +
     '<li> ' +
     '<a href="javascript:;">About</a> ' +
@@ -28,10 +28,10 @@ $( document ).ready(function() {
     '<nav class="nav-sidebar navbar-fixed-left hidden-xs-down" > ' +
     '<ul class="nav flex-column"> ' +
     '<li class="active">  ' +
-    '<a href="javascript:;">Home</a> ' +
+    '<a href="javascript:;">신청자 접수</a> ' +
     '</li> ' +
     '<li> ' +
-    '<a href="javascript:;">About</a> ' +
+    '<a href="javascript:;">신청자 정보</a> ' +
     '</li> ' +
     '<li class="nav-divider"></li> ' +
     '<li> ' +
