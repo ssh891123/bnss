@@ -10,43 +10,13 @@
 </head>
 
 <body>
+    
+    </script>
+            
     <div id='div_topMenu'> </div>
 
-    <div class="col-md-9">
-        <div id='div_leftMenu'> </div>
-        <!-- <div class="page-header">
-            <h1>회원가입
-                <small>세미나 신청 회원가입</small>
-            </h1>
-        </div> -->
-        <div class="jumbotron" style="padding-top:20px">
-            <form class="form-horizontal">
-                
-                <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputEmail">ID</label>
-                    <div class="col-sm-6">
-                        <input class="form-control" type="text" placeholder="ID" readonly>
-                    </div>
-                </div>
-        
-                <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
-                    <div class="col-sm-6">
-                        <input class="form-control" id="inputEmail" type="email" placeholder="이메일">
-                    </div>
-                </div>
-        
-                <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
-                    <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="inputNumber" placeholder="- 없이 입력해 주세요" />
-                    </div>
-                </div>
-            </form>
-        </div>
-        </div>
-
     <div class="container" style="margin-top: 50px">
+        <div id='div_leftMenu2'> </div>
             
         <div class="col-md-12">
             
@@ -113,9 +83,11 @@
                             <div class="span8">
                                 <label for="exampleFormControlInput1">8. 입금일</label>
                                 <input type="text" class="form-control" placeholder="입금일 입니다." name="depositDATE" maxlength="20">
+                                <p class="help-block">입금하신 후에 작성하셔도 됩니다.</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group">
                             <div class="span8">
@@ -133,10 +105,14 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group">
-                            <div class="span8">
-                                <input type="submit" class="btn btn-primary form-control" value="신청서 제출">
+                            <div class="form-group">
+                                <div class="col-sm-12 text-center">
+                                    <button class="btn btn-primary btn-lg" type="submit">정보 저장<i class="fa fa-check spaceLeft"></i></button>
+                                    <button class="btn btn-success btn-lg" type="submit">신청서 제출<i class="fa fa-times spaceLeft"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -153,6 +129,15 @@
     <script src="import/js/jquery-3.2.1.min.js"></script>
     <script src="../js/common/bnssTopMenu.js"></script>
     <script src="../js/common/bnssLeftMenu.js"></script>
+
+    <!-- 라이브러리 로드 순서는 아래와 같다. cdnjs 저장소에서 라이브러리를 로드하였다. --> 
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js">
+    </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js">
+    </script>
+
+    
 </body>
 
 </html>

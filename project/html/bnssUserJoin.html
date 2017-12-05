@@ -25,7 +25,8 @@
 
 <body>    
     <article class="container">
-
+        <!-- 회원가입 예제 -->
+        <!-- http://fhermesiv.mailplug.net/join.php?rq_url=%2Fjoin.php%3Frq_url%3D%252F -->
         <div class="col-md-12">
             <div class="page-header">
                 <h1>회원가입
@@ -34,35 +35,72 @@
             </div>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputEmail">ID</label>
+                    <label class="col-sm-3 control-label" for="inputEmail">ID
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
                     <div class="col-sm-6">
-                        <input class="form-control" type="text" placeholder="ID" readonly>
+                        <div class="input-group">
+                            <input class="form-control" type="text" id="userID" placeholder="ID">
+                            <span class="input-group-btn">
+                                <button id="test_1" class="btn btn-info" >ID 중복확인
+                                    <i class="fa fa-mail-forward spaceLeft"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+    
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputPassword">비밀번호
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" id="inputPassword" type="password" placeholder="비밀번호">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인">
+                        <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
+                    <label class="col-sm-3 control-label" for="inputEmail">이메일
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
                     <div class="col-sm-6">
                         <input class="form-control" id="inputEmail" type="email" placeholder="이메일">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
+                    <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
                     <div class="col-sm-6">
                         <input type="tel" class="form-control" id="inputNumber" placeholder="- 없이 입력해 주세요" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputName">이름</label>
+                    <label class="col-sm-3 control-label" for="inputName">이름
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
                     <div class="col-sm-6">
                         <input class="form-control" id="inputName" type="text" placeholder="이름">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputGender">성별</label>
+                    <label class="col-sm-3 control-label" for="inputGender">성별
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
                     <div class="col-sm-6">
                         <label class="radio-inline">
                             <input type="radio" name="sex" id="inlineCheckbox1" value="male" /> Male
@@ -74,14 +112,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputName">생년월일</label>
+                    <label class="col-sm-3 control-label" for="inputName">생년월일
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
                     <div class="col-sm-6">
                         <input type="tel" class="form-control" id="inputNumber" placeholder="주민번호 앞 6자리 입력해 주세요" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputChurchName">교회이름</label>
+                    <label class="col-sm-3 control-label" for="inputChurchName">교회이름
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
                     <div class="col-sm-6">
                         <input class="form-control" id="inputChurchName" type="text" placeholder="교회 이름">
                     </div>
@@ -91,12 +133,14 @@
                 https://www.poesis.org/postcodify/
                 https://www.juso.go.kr/CommonPageLink.do?link=/addrlink/devAddrLinkRequestSample -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소</label>
+                    <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
                     <div class="col-sm-6">
                         <div class="input-group">
                             <input type="text" class="form-control" id="sample6_postcode" placeholder="우편 번호" />
                             <span class="input-group-btn">
-                                <button id="test_1" class="btn btn-success" >우편번호 찾기
+                                <button id="test_1" class="btn btn-warning" >우편번호 찾기
                                     <i class="fa fa-mail-forward spaceLeft"></i>
                                 </button>
                             </span>

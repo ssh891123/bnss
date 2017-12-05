@@ -28,15 +28,18 @@ $( document ).ready(function() {
     '<nav class="nav-sidebar navbar-fixed-left hidden-xs-down" > ' +
     '<ul class="nav flex-column"> ' +
     '<li class="active">  ' +
-    '<a href="javascript:;">신청자 접수</a> ' +
+    '<a href="#">신청자 접수</a> ' +
     '</li> ' +
     '<li> ' +
-    '<a href="javascript:;">신청자 정보</a> ' +
+    '<a href="#">세미나 신청 내역</a> ' +
     '</li> ' +
     '<li class="nav-divider"></li> ' +
     '<li> ' +
-    '<a href="javascript:;"> ' +
+    '<a href="bnssAdmLogin.html"> ' +
     '<i class="glyphicon glyphicon-off"></i> Log Out</a> ' +
+    '</li> ' +
+    '<li> ' +
+    '<a href="#">회원 정보 수정</a> ' +
     '</li> ' +
     '</ul> ' +
     '</nav> ' +
