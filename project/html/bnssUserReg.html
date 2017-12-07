@@ -5,7 +5,8 @@
     <meta http-equiv="Contetn-Type" content="text/html">
     <meta name="viewport" content="width=device-width" , inital-scale="1">
     <link href="import/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- 달력 import -->
+    <link href="../js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <title>UserRegistration.html</title>
 </head>
 
@@ -13,16 +14,50 @@
     
     </script>
             
-    <div id='div_topMenu'> </div>
+    <div id='div_topMenu2'> </div>
 
     <div class="container" style="margin-top: 50px">
         <div id='div_leftMenu2'> </div>
             
-        <div class="col-md-12">
+        <div class="col-md-10">
             
             <div class="jumbotron" style="padding-top:20px">
                 <form method="post" action="loginAction.jsp">
-                    <h3 style="text-align: center;">접수자 등록 화면</h3>
+                    <h2 style="text-align: center;">
+                        <strong>접수자 등록 화면</strong>
+                    </h2>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">세미나 정보</label>
+                            <select class="form-control"> 
+                                <option>[12월 목회자 세미나] [기간:2017년 12월 4일~6일(월~수)] [장소: 청년진주초대교회청원]</option> 
+                                <option>[1월 동계 재직 세미나] [기간:2018년 1월 1일~3일(월~수)] [장소: 오산리최자실기념금식기도원]</option> 
+                            </select>
+                            
+                            <!-- <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                    Dropdown
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="#">
+                                            [12월 목회자 세미나] [기간:2017년 12월 4일~6일(월~수)] [장소: 청년진주초대교회청원]
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="#">
+                                            [1월 동계 재직 세미나] [기간:2018년 1월 1일~3일(월~수)] [장소: 오산리최자실기념금식기도원]
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                    
 
                     <div class="row">
                         <div class="form-group">
@@ -30,6 +65,7 @@
                             <input type="text" class="form-control" placeholder="교회명을 입력해주세요." name="churchNAME" maxlength="20">
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group">
                             <div class="span8">
@@ -81,8 +117,14 @@
                     <div class="row">
                         <div class="form-group">
                             <div class="span8">
-                                <label for="exampleFormControlInput1">8. 입금일</label>
-                                <input type="text" class="form-control" placeholder="입금일 입니다." name="depositDATE" maxlength="20">
+                                <!-- <label for="exampleFormControlInput1">8. 입금일</label> -->
+                                <!-- <input type="text" class="form-control" placeholder="입금일 입니다." name="depositDATE" maxlength="20"> -->
+                                <label for="dtp_input2" class="control-label">8. 입금일</label>                               
+                                <div class="input-group date form_date span8" data-date="" data-date-format="yyyy년 MM dd일" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                    <input class="form-control"  type="text" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                </div> 
                                 <p class="help-block">입금하신 후에 작성하셔도 됩니다.</p>
                             </div>
                         </div>
@@ -130,11 +172,21 @@
     <script src="../js/common/bnssTopMenu.js"></script>
     <script src="../js/common/bnssLeftMenu.js"></script>
 
-    <!-- 라이브러리 로드 순서는 아래와 같다. cdnjs 저장소에서 라이브러리를 로드하였다. --> 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js">
-    </script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js">
+    <!-- 달력 import -->
+    <script type="text/javascript" src="../js/datetimepicker/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/datetimepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/datetimepicker/bootstrap-datetimepicker.ko.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language:  'ko',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
     </script>
 
     

@@ -26,9 +26,6 @@
 
       <main class="col-sm-10">
         
-        <!-- <div class="col-md-10">
-            
-        </div> -->
         <h2>Table title</h2>
         <form action="#" method="get">
             <div class="input-group">
@@ -42,7 +39,7 @@
 
 
         <div class="table-responsive">
-          <table class="table table-striped table-hover table-condensed table-list-search">
+          <table class="table table-striped table-hover table-condensed table-list-search" id="tab_logic">
             <thead>
               <tr class="success">
                 <th>접수번호</th>
@@ -56,9 +53,10 @@
                 <th>정보</th>
               </tr>
             </thead>
+            
             <tbody>
-              <tr>
-                <td>1</td>
+              <tr id='addr0'>
+                <td><p>1</p></td>
                 <td>Lorem</td>
                 <td>ipsum</td>
                 <td>dolor</td>
@@ -67,9 +65,9 @@
                 <td>sit</td>
                 <td data-name="sel">
                     <select name="sel0" style="padding-bottom:2px">
-                      <option value "1">접수요청</option>
-                      <option value "2">접수승인</option>
-                      <option value "3">접수기각</option>
+                      <option value "1" id="btn-offline">접수요청</option>
+                      <option value "2" id="btn-online">접수승인</option>
+                      <option value "3" id="btn-out-of-order">접수기각</option>
                     </select>
                 </td>
                 <td>
@@ -86,117 +84,17 @@
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td>2</td>
-                <td>amet</td>
-                <td>consectetur</td>
-                <td>adipiscing</td>
-                <td>elit</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Integer</td>
-                <td>nec</td>
-                <td>odio</td>
-                <td>Praesent</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>libero</td>
-                <td>Sed</td>
-                <td>cursus</td>
-                <td>ante</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>dapibus</td>
-                <td>diam</td>
-                <td>Sed</td>
-                <td>nisi</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Nulla</td>
-                <td>quis</td>
-                <td>sem</td>
-                <td>at</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>libero</td>
-                <td>Sed</td>
-                <td>cursus</td>
-                <td>ante</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>dapibus</td>
-                <td>diam</td>
-                <td>Sed</td>
-                <td>nisi</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Nulla</td>
-                <td>quis</td>
-                <td>sem</td>
-                <td>at</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>libero</td>
-                <td>Sed</td>
-                <td>cursus</td>
-                <td>ante</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>dapibus</td>
-                <td>diam</td>
-                <td>Sed</td>
-                <td>nisi</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Nulla</td>
-                <td>quis</td>
-                <td>sem</td>
-                <td>at</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Nulla</td>
-                <td>quis</td>
-                <td>sem</td>
-                <td>at</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>libero</td>
-                <td>Sed</td>
-                <td>cursus</td>
-                <td>ante</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>dapibus</td>
-                <td>diam</td>
-                <td>Sed</td>
-                <td>nisi</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Nulla</td>
-                <td>quis</td>
-                <td>sem</td>
-                <td>at</td>
-              </tr>
+
+              
             </tbody>
           </table>
         </div>
       </main>
     </div>
   </div>
+
+  <a id="add_row" class="btn btn-default pull-left">Add Row</a>
+  <a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
 
 
   <div class="modal fade" id="reg_info" tabindex="-1" role="dialog" aria-labelledby="reg_info" aria-hidden="true">
@@ -317,50 +215,6 @@
     <!-- /.modal-dialog -->
   </div>
 
-  <div class="container">
-      <div class="row">
-          <div class="span12">
-              <a data-toggle="modal" class="btn" href="#loginModal">Log in</a>
-               
-              <div class="modal hide" id="loginModal">
-                  <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">✕</button>
-                      <h3>Login to Website</h3>
-                  </div>
-                      <div class="modal-body" style="text-align:center;">
-                      <div class="row-fluid">
-                          <div class="span10 offset1">
-                              <div id="modalTab">
-                                  <div class="tab-content">
-                                      <div class="tab-pane active" id="login">
-                                          <form method="post" action='' name="login_form">
-                                              <p><input type="text" class="span12" name="eid" id="email" placeholder="Email"></p>
-                                              <p><input type="password" class="span12" name="passwd" placeholder="Password"></p>
-                                              <p><button type="submit" class="btn btn-primary">Sign in</button>
-                                              <a href="#forgotpassword" data-toggle="tab">Forgot Password?</a>
-                                              </p>
-                                          </form>
-                                      </div>
-                                      <div class="tab-pane fade" id="forgotpassword">
-                                          <form method="post" action='' name="forgot_password">
-                                              <p>Hey this stuff happens, send us your email and we'll reset it for you!</p>
-                                              <input type="text" class="span12" name="eid" id="email" placeholder="Email">
-                                              <p><button type="submit" class="btn btn-primary">Submit</button>
-                                              <a href="#login" data-toggle="tab">Wait, I remember it now!</a>
-                                              </p>
-                                          </form>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-
 
   <div class="modal fade" id="join_info" tabindex="-1" role="dialog" aria-labelledby="join_info" aria-hidden="true">
     <div class="modal-dialog">
@@ -465,14 +319,14 @@
             <div class="form-group">
               <label class="col-sm-3 control-label" for="inputChurchName">참석 명단</label>
               <div class="col-sm-8">
-                  <textarea class="form-control" rows="10" placeholder="강원주, 손성현, 이정빈, 손성문, 하현우" name="TOTALattendance" readonly></textarea>
+                  <textarea class="form-control" rows="10" placeholder="강원주, 손성현, 이정빈, 손성문" name="TOTALattendance" readonly></textarea>
               </div>
             </div>
 
           </form>
 
         </div>
-        <div class="modal-footer ">
+        <div class="modal-footer ">i88
           <button type="button" class="btn btn-success">
             <span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -483,8 +337,7 @@
     </div>
     <!-- /.modal-dialog -->
   </div>
-
-
+  
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
@@ -501,6 +354,7 @@
   <script src="../js/common/bnssTopMenu.js"></script>
   <script src="../js/common/bnssLeftMenu.js"></script>
   <script src="../js/common/bnssGridSrch.js"></script>
+  <script src="table_add.js"></script>
 </body>
 
 </html>
