@@ -31,7 +31,7 @@ $( document ).ready(function() {
     '<a href="bnssUserReg.html">신청자 접수</a> ' +
     '</li> ' +
     '<li> ' +
-    '<a href="result_register.html">세미나 신청 결과</a> ' +
+    '<a href="bnssUserSmnResult.html">세미나 신청 결과</a> ' +
     '</li> ' +
     '<li> ' +
     '<a href="#">세미나 신청 내역</a> ' +

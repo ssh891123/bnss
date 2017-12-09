@@ -10,116 +10,157 @@
     <title>UserRegistration.html</title>
 </head>
 
-<body>
-    
-    </script>
-            
+<body>            
     <div id='div_topMenu2'> </div>
 
-    <div class="container" style="margin-top: 50px">
+    <div class="container" style="margin-top: 70px">
         <div id='div_leftMenu2'> </div>
             
         <div class="col-md-10">
             
             <div class="jumbotron" style="padding-top:20px">
-                <form method="post" action="loginAction.jsp">
-                    <h2 style="text-align: center;">
-                        <strong>접수자 등록 화면</strong>
-                    </h2>
+                <form class="form-horizontal" method="post" action="loginAction.jsp">
+                    <h1 style="text-align: center;">
+                        <strong>접수자 등록</strong>
+                    </h1>
 
                     <div class="row">
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">세미나 정보</label>
-                            <select class="form-control"> 
-                                <option>[12월 목회자 세미나] [기간:2017년 12월 4일~6일(월~수)] [장소: 청년진주초대교회청원]</option> 
-                                <option>[1월 동계 재직 세미나] [기간:2018년 1월 1일~3일(월~수)] [장소: 오산리최자실기념금식기도원]</option> 
-                            </select>
-                            
-                            <!-- <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                    Dropdown
-                                    <span class="caret"></span>
+                            <label for="inputId" class="col-lg-2 control-label">세미나 선택</label>
+                            <div class="col-lg-10">
+                                <!-- <input type="text" class="form-control onlyAlphabetAndNumber" id="id" data-rule-required="true" placeholder="30자이내의 알파벳, 언더스코어(_), 숫자만 입력 가능합니다." maxlength="30"> -->
+                                <select class="form-control"> 
+                                    <option>[12월 목회자 세미나] [기간:2017년 12월 4일~6일(월~수)] [장소: 청원진주초대교회]</option> 
+                                    <option>[1월 동계 재직 세미나] [기간:2018년 1월 1일~3일(월~수)] [장소: 청원진주초대교회]</option> 
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputId" class="col-lg-2 control-label">교회명</label>
+                            <div class="col-lg-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>                                
+                                    <input type="text" class="form-control" placeholder="교회명을 입력해주세요." name="churchNAME" maxlength="20">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputId" class="col-lg-2 control-label">작성자 성명</label>
+                            <div class="col-lg-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>                                
+                                    <input type="text" class="form-control" placeholder="작성자의 성명을 입력해주세요." name="writterNAME" maxlength="20">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputId" class="col-lg-2 control-label">작성자 연락처</label>
+                            <div class="col-lg-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>                                
+                                    <input type="text" class="form-control" placeholder="작성자의 핸드폰 번호를 입력해주세요." name="writterPHONE" maxlength="20">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 주소찾기 사이트
+                https://www.poesis.org/postcodify/
+                https://www.juso.go.kr/CommonPageLink.do?link=/addrlink/devAddrLinkRequestSample -->
+                <!-- <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputChurchAddr">세미나 장소
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="sample6_postcode" placeholder="우편 번호" />
+                            <span class="input-group-btn">
+                                <button id="test_1" class="btn btn-warning" >우편번호 찾기
+                                    <i class="fa fa-mail-forward spaceLeft"></i>
                                 </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                    <li role="presentation">
-                                        <a role="menuitem" tabindex="-1" href="#">
-                                            [12월 목회자 세미나] [기간:2017년 12월 4일~6일(월~수)] [장소: 청년진주초대교회청원]
-                                        </a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a role="menuitem" tabindex="-1" href="#">
-                                            [1월 동계 재직 세미나] [기간:2018년 1월 1일~3일(월~수)] [장소: 오산리최자실기념금식기도원]
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div> -->
-
+                            </span>
                         </div>
                     </div>
+                </div> -->
 
-                    
 
                     <div class="row">
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">1. 교회명</label>
-                            <input type="text" class="form-control" placeholder="교회명을 입력해주세요." name="churchNAME" maxlength="20">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="span8">
-                                <label for="exampleFormControlInput1">2. 작성자 성명</label>
-                                <input type="text" class="form-control" placeholder="작성자의 성명을 입력해주세요." name="writterNAME" maxlength="20">
+                            <label for="inputId" class="col-lg-2 control-label">주소</label>
+                            <div class="col-lg-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="교회 주소를 입력해주세요." name="churchADDRESS" maxlength="20">
+                                    <span class="input-group-btn">
+                                        <button id="test_1" class="btn btn-warning" >주소 찾기
+                                            <i class="fa fa-mail-forward spaceLeft"></i>
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group">
-                            <div class="span8">
-                                <label for="exampleFormControlInput1">3. 작성자 연락처</label>
-                                <input type="text" class="form-control" placeholder="작성자의 핸드폰 번호를 입력해주세요." name="writterPHONE" maxlength="20">
+                            <label for="inputId" class="col-lg-2 control-label"></label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="sample6_address" placeholder="검색주소" />
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group">
-                            <div class="span8">
-                                <label for="exampleFormControlInput1">4. 주소</label>
-                                <input type="text" class="form-control" placeholder="교회 주소를 입력해주세요." name="churchADDRESS" maxlength="20">
+                            <label for="inputId" class="col-lg-2 control-label"></label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="sample6_address2" placeholder="상세주소" />
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+
+                    <!-- <div class="row">
                         <div class="form-group">
                             <div class="span8">
                                 <label for="exampleFormControlInput1">5. Email address</label>
                                 <input type="text" class="form-control" placeholder="Email address를 입력해주세요." name="eMAIL" maxlength="20">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+
                     <div class="row">
                         <div class="form-group">
-                            <div class="span8">
-                                <label for="exampleFormControlInput1">6. 입금자 성명</label>
-                                <input type="text" class="form-control" placeholder="입금자 성명을 입력해주세요." name="depositNAME" maxlength="20">
+                            <label for="inputId" class="col-lg-2 control-label">입금자 성명</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="입금자 성명을 입력해주세요." name="depositNAME" maxlength="20">    
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group">
-                            <div class="span8">
-                                <label for="exampleFormControlInput1">7. 입금액</label>
-                                <input type="text" class="form-control" placeholder="입금하실 금액" name="depositAMOUNT" maxlength="20">
+                            <label for="inputId" class="col-lg-2 control-label">입금액</label>
+                            <div class="col-lg-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>                                
+                                    <input type="text" class="form-control" placeholder="입금하실 금액" name="depositAMOUNT" maxlength="20"> 
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group">
-                            <div class="span8">
-                                <!-- <label for="exampleFormControlInput1">8. 입금일</label> -->
-                                <!-- <input type="text" class="form-control" placeholder="입금일 입니다." name="depositDATE" maxlength="20"> -->
-                                <label for="dtp_input2" class="control-label">8. 입금일</label>                               
+                            <label for="inputId" class="col-lg-2 control-label">입금일</label>
+                            <div class="col-lg-10">
                                 <div class="input-group date form_date span8" data-date="" data-date-format="yyyy년 MM dd일" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                                     <input class="form-control"  type="text" readonly>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
@@ -132,17 +173,18 @@
 
                     <div class="row">
                         <div class="form-group">
-                            <div class="span8">
-                                <label for="exampleFormControlInput1">9. 참석인원(초등생이상, 8세이상)</label>
+                            <label for="inputId" class="col-lg-2 control-label">참석인원</label>
+                            <div class="col-lg-10">
                                 <input type="number" class="form-control" placeholder="참석 인원을 입력해주세요." name="attendance" maxlength="20">
+                                <p class="help-block">초등생이상(8세이상) 참석 인원을 작성하셔야 됩니다.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group">
-                            <div class="span8">
-                                <label for="exampleFormControlInput1">10. 참석자명단(단체)</label>
+                            <label for="inputId" class="col-lg-2 control-label">참석자명단(단체)</label>
+                            <div class="col-lg-10">
                                 <textarea class="form-control" rows="10" placeholder="단체참석시 참석자 명단을 입력해주세요." name="TOTALattendance"></textarea>
                             </div>
                         </div>
