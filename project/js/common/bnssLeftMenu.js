@@ -45,7 +45,7 @@ $( document ).ready(function() {
     '<i class="glyphicon glyphicon-off"></i> Log Out</a> ' +
     '</li> ' +
     '<li> ' +
-    '<a href="#">회원 정보 수정</a> ' +
+    '<a href="bnssUserModify.html">회원 정보 수정</a> ' +
     '</li> ' +
     '</ul> ' +
     '</nav> ' +
