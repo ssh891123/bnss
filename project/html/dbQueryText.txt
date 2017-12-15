@@ -20,19 +20,19 @@ CREATE TABLE `USER_INFO` (
 insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, email_addr, zip_cd, hp_no, gender, birth_day, del_yn, ins_id) values (?,?,......?)
 
 insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, email_addr, zip_cd, hp_no, gender, birth_day, del_yn, ins_id) values 
-('developer', 'qwe123', '개발자', 'LV5', '서울진주초대교회', '경기도 성남시 분당구 판교원로 92', 'bnssProject@gmail.com', '13468', '010-1234-5678', 'M', '19891215', 'N', 'MASTER')
+('developer', 'qwe123', '개발자', 'LV5', '서울진주초대교회', '경기도 성남시 분당구 판교원로 92', 'bnssProject@gmail.com', '13468', '01012345678', 'M', '19891215', 'N', 'MASTER')
 
 insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, email_addr, zip_cd, hp_no, gender, birth_day, del_yn, ins_id) values
-('adm', 'qwe123', '관리자', 'LV4', '진주초대교회', '경상남도 진주시 남강로 1351', 'admProject@gmail.com', '52781', '010-2345-6789', 'F', '19901115', 'N', 'MASTER')
+('adm', 'qwe123', '관리자', 'LV4', '진주초대교회', '경상남도 진주시 남강로 1351', 'admProject@gmail.com', '52781', '01023456789', 'F', '19901115', 'N', 'MASTER')
 
 insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, email_addr, zip_cd, hp_no, gender, birth_day, del_yn, ins_id) values
-('counter', 'qwe123', '접수담당자', 'LV3', '청원진주초대교회', '충청북도 청주시 서원구 남이면 남석로 104-15', 'counterProject@gmail.com', '28182', '010-3456-7890', 'M', '19911015', 'N', 'MASTER')
+('counter', 'qwe123', '접수담당자', 'LV3', '청원진주초대교회', '충청북도 청주시 서원구 남이면 남석로 104-15', 'counterProject@gmail.com', '28182', '01034567890', 'M', '19911015', 'N', 'MASTER')
 
 insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, email_addr, zip_cd, hp_no, gender, birth_day, del_yn, ins_id) values
-('upperSimin', 'qwe123', '높은일반인', 'LV2', '여의도순복음교회', '서울특별시 영등포구 국회대로76길 25', 'upperSiminProject@gmail.com', '07239', '010-4567-8901', 'F', '19920915', 'N', 'MASTER')
+('upperSimin', 'qwe123', '높은일반인', 'LV2', '여의도순복음교회', '서울특별시 영등포구 국회대로76길 25', 'upperSiminProject@gmail.com', '07239', '01045678901', 'F', '19920915', 'N', 'MASTER')
 
 insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, email_addr, zip_cd, hp_no, gender, birth_day, del_yn, ins_id) values
-('simin', 'qwe123', '일반인', 'LV1', '지구촌교회', '경기도 성남시 분당구 구미동 10', 'siminProject@gmail.com', '13630', '010-5678-9012', 'M', '19930815', 'N', 'MASTER')
+('simin', 'qwe123', '일반인', 'LV1', '지구촌교회', '경기도 성남시 분당구 구미동 10', 'siminProject@gmail.com', '13630', '01056789012', 'M', '19930815', 'N', 'MASTER')
 
 
 CREATE TABLE `SEMINAR_INFO` (
