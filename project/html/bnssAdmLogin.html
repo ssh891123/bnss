@@ -7,51 +7,53 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>AdminLogin.html</title>
-    <!-- https://bootsnipp.com/snippets/featured/modal-login-with-jquery-effects 사용예제 -->
-
-    <!-- Bootstrap core CSS -->
+    <title>세미나 접수 - 로그인</title>
     <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
 </head>
 
 <body>
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
 
-            <form class="form-signin" method="POST" action="register.html">
+            <form class="form-signin" action="/login/admOrUser" method="post">
                 <div class="form-group">
-                    <h2 class="form-signin-heading text-center" >세미나 접수 로그인</h2>
+                    <h2 class="form-signin-heading text-center">세미나 접수 로그인</h2>
                 </div>
-               
-                <form id="loginform" class="form-horizontal" role="form">
 
+                <div id="loginform" class="form-horizontal" role="form">
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-user"></i>
                         </span>
-                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+                        <input type="text" class="form-control" name="userId" value="" placeholder="ID를 입력하세요.">
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-lock"></i>
                         </span>
-                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                        <input type="password" class="form-control" name="pw" placeholder="비밀번호를 입력하세요.">
                     </div>
-                </form>
+                </div>
 
                 <div class="form-group">
-
                     <div class="help-block text-right">
-                        <a href="" data-title="id_find" data-toggle="modal" data-target="#id_find"><strong><u>ID 찾기</u></a></strong>
-                        <a>*</a> 
-                        <a href="" data-title="pass_find" data-toggle="modal" data-target="#pass_find"><strong><u>비밀번호 찾기</u></a></strong>
+                        <a href="" id="findId">
+                            <strong>
+                                <u>ID 찾기</u>
+                        </a>
+                        </strong>
+                        <a>*</a>
+                        <a href="" id="findPw">
+                            <strong>
+                                <u>비밀번호 찾기</u>
+                        </a>
+                        </strong>
                     </div>
-               </div>
-                
+                </div>
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="location.href='registser.html' "> 로그인</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit"> 로그인</button>
+                
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me
@@ -59,214 +61,19 @@
                 </div>
                 <div class="form-group">
                     <div class="bottom text-center">
-                        처음 오셨습니까? <a href="bnssUserJoin.html"><b>회원가입</b></a>
+                        처음 오셨습니까?
+                        <a href="../html/bnssUserJoin.html">
+                            <b>회원가입</b>
+                        </a>
                     </div>
-                </div>
-                
+                </div>                
             </form>
         </div>
     </div>
-
-    <!-- ID찾기 modal -->
-    <div class="modal fade" id="id_find" tabindex="-1" role="dialog" aria-labelledby="id_find" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                    <h4 class="modal-title custom_align" id="Heading">ID 찾기</h4>
-                </div>
-                <div class="modal-body">
-
-                    <form class="form-horizontal">
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputName">이름</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="writterNAME" >
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputEmail">E-Mail</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="writterNAME" >
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputNumber">연락처</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="-없이 입력해주세요" name="writterPHONE">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer ">
-                    <p class="text-center">
-                        <a href="#" class="btn btn-success" role="button" data-toggle="modal" 
-                        data-target="#login-lost_btn-modal" data-dismiss="modal">확인</a>
-                    </p> 
-                </div>
-
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div><!-- /ID찾기 modal -->
-
-    <!-- ID 보여주기 -->
-    <div class="modal fade" id="login-lost_btn-modal" tabindex="-1" role="dialog" aria-labelledby="login-lost_btn-modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                    <h4 class="modal-title custom_align" id="Heading">ID 찾기</h4>
-                </div>
-                <div class="modal-body">
-
-                    <form class="form-horizontal">
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputName">ID</label>
-                            <div class="col-sm-6">
-                                <!-- <input type="text" class="form-control" id="userID" placeholder="사용자ID" /> -->
-                                <p class="lead">사용자 ID</p>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-
-                <div class="modal-footer ">
-                    <p class="text-center">
-                        <a href="#" class="btn btn-success" role="button" data-toggle="modal" 
-                        data-target="#login-lost_btn-modal">확인</a>
-                    </p>
-                </div>
-
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div><!-- /ID 보여주기 -->
-    
-    <!-- PassWord찾기 modal -->
-    <div class="modal fade" id="pass_find" tabindex="-1" role="dialog" aria-labelledby="pass_find" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                    <h4 class="modal-title custom_align" id="Heading">비밀번호 찾기</h4>
-                </div>
-                <div class="modal-body">
-
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputID">ID</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="churchNAME">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputNAME">NAME</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="userNAME">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputEmail">E-Mail</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="writterNAME" >
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputNumber">작성자 연락처</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="-없이 입력해주세요" name="writterPHONE">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer ">
-                    <p class="text-center">
-                        <a href="#" class="btn btn-success" role="button" data-toggle="modal" 
-                        data-target="#pass-lost_btn-modal" data-dismiss="modal">확인</a>
-                    </p> 
-                </div>
-                
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div><!-- /PassWord찾기 modal -->
-
-    <!-- PassWord 보여주기 -->
-    <div class="modal fade" id="pass-lost_btn-modal" tabindex="-1" role="dialog" aria-labelledby="pass-lost_btn-modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                    <h4 class="modal-title custom_align" id="Heading">비밀번호 변경</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputName">새 비밀번호</label>
-                            <div class="col-sm-6">
-                                <input type="password" class="form-control" name="password" placeholder="새 비밀번호">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="inputName">새 비밀번호 확인</label>
-                            <div class="col-sm-6">
-                                <input type="password" class="form-control" name="password" placeholder="새 비밀번호 확인">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-<
-                <div class="modal-footer ">
-                    <p class="text-center">
-                        <a href="#" class="btn btn-success" role="button" data-toggle="modal" 
-                        data-target="#pass-lost_btn-modal2" data-dismiss="modal">확인</a>
-                    </p> 
-                </div>
-
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div><!-- /PassWord 보여주기 -->      
-
-    <!--  <div class="container"> -->
-
-      <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-    crossorigin="anonymous"></script>
-        <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-    crossorigin="anonymous"></script>
-    <script src="../html/import/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../html/import/js/ie10-viewport-bug-workaround.js"></script>
+ 
     <script src="../html/import/js/jquery-3.2.1.min/jquery-3.2.1.min.js"></script>
-    <script src="../js/bnssLostLogin.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="../html/import/js/bootstrap.min.js"></script>
+    <script src="../js/bnssAdmLogin.js"></script>
 </body>
 
 </html>
