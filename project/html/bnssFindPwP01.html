@@ -9,6 +9,9 @@
     <title>세미나 접수 - 비밀번호 찾기</title>
     
     <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 이메일 유효성 라이브러리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 
 <body>
@@ -50,11 +53,14 @@
                     <div class="form-group row">
                         <label class="col-sm-3 control-label" for="inputEmail">E-Mail</label>
                         <div class="col-sm-8">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <span class="glyphicon glyphicon-envelope"></span>
+                            <div class="control-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                    </div>
+                                    <input type="email" class="form-control" name="writterNAME" id="findIdEmail">
                                 </div>
-                                <input type="email" class="form-control" name="writterNAME" id="findIdEmail">
+                                <p class="help-block"></p>
                             </div>
                         </div>
                     </div>
@@ -89,6 +95,13 @@
     <script src="../html/import/js/ie10-viewport-bug-workaround.js"></script>
     <script src="../html/import/js/jquery-3.2.1.min/jquery-3.2.1.min.js"></script>
     <script src="../js/bnssFindPwP01.js"></script>
+
+    <!-- 이메일 유효성 라이브러리 -->
+    <script>
+            $(function () { $("input").not("[type=submit]").jqBootstrapValidation(); } );
+        </script>
+    <script src="../html/import/js/jqBootstrapValidation.js"></script>
+
 </body>
 
 </html>

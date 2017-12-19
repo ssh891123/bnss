@@ -106,6 +106,48 @@ $("#add_row2").click(function(){
     JoinNum++; 
 });
 
+// var RegistrationDate = '17-12-01'
+var serminarName = '2017 동계 제직세미나';
+// var churchName = '서울진주초대교회';
+// var userName = '손성문';
+// var depositName = '손성현';
+// var depositDate = '17-12-03';
+// var attendNumber = 10;
+// var attendExpense = 20000;
+// var totalDepositNumber = attendNumber * attendExpense;
+
+//테이블 추가3 - bnassAdmMng2.html
+$("#add_row3").click(function(){
+    $('#addr'+JoinNum).html(
+        '<td>' + RegistrationDate + '</td>' +
+        '<td>' + serminarName + '</td>' +
+        '<td>' +  churchName + '</td>' +
+        '<td>' +  userName + '</td>' +
+        '<td>' +  depositName + '</td>' +
+        '<td>' +  depositDate + '</td>' +
+        '<td>' +  totalDepositNumber + '</td>' +
+        '<td>' +  attendNumber + ' 명</td>' +
+        '<td data-name="sel">' +
+            '<select name="sel0" style="padding-bottom:2px">' +
+                '<option value "1">접수요청</option>' +
+                '<option value "2">접수승인</option>' +
+                '<option value "3">접수기각</option>' +
+            '</select>' +
+        '</td>' +
+        '<td>' +
+        '<a data-placement="top" data-toggle="tooltip" title="세미나 신청 정보">' +
+            '<button class="btn btn-danger btn-xs" data-title="join_info" data-toggle="modal" data-target="#join_info">' +
+                '<span class="glyphicon glyphicon-pencil">' +
+                '</span>' +
+            '</button>' +
+        '</a>' +
+        '</td>'
+    );
+
+    $('#tab_logic').append('<tr id="addr'+(JoinNum+1)+'"></tr>');
+    JoinNum++; 
+});
+
 
 
    $("#delete_row").click(function(){
