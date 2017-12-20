@@ -9,27 +9,20 @@
     <title>UserJoin.html</title>
 
     <!-- Bootstrap -->
-    <link href="import/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../html/import/css/font-awesome.min.css" rel="stylesheet">
+    
     <!-- 달력 import -->
     <link href="../js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <title>SeminarReg.html</title>
-    <!-- font awesome -->
-    <!-- <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" title="no title" charset="utf-8"> -->
-    <!-- Custom style -->
-    <!-- <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8"> -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>  
     <div id='div_topMenu'> </div> 
-    <article class="container" style="margin-top: 70px">
+    <article class="container">
+
         <div id='div_leftMenu'> </div>
+     
         <!-- 회원가입 예제 -->
         <!-- http://fhermesiv.mailplug.net/join.php?rq_url=%2Fjoin.php%3Frq_url%3D%252F -->
         <div class="col-md-10">
@@ -48,7 +41,6 @@
                         <input class="form-control" type="text" id="userID" placeholder="예) 2018년 동계 제직세미나">
                     </div>
                 </div>
-
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputEmail">세미나 시작일
@@ -112,7 +104,7 @@
                     </label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+                            <span class="input-group-addon"><i class="fa fa-credit-card-alt"></i></span>
                             <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="세미나 입금 계좌번호">
                         </div>
                     </div>
@@ -123,7 +115,8 @@
                     </label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+                            <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span> -->
+                            <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
                             <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="세미나 입금 은행">
                         </div>
                     </div>
@@ -134,7 +127,7 @@
                     </label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-heart"></span></span>
+                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                             <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="예금주">
                         </div>
                     </div>

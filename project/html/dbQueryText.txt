@@ -41,6 +41,8 @@ insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, e
 insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, email_addr, zip_cd, hp_no, gender, birth_day, del_yn, ins_id) values 
 ('bbb', '123', '³ª³ª³ª', 'LV4', '1', '12', 'bbb@gmail.com', '123', '22223333', 'M', '1234', 'N', 'MASTER')
 
+insert into user_info (login_id, pw, user_nm, auth_lv, church_nm, church_addr, email_addr, zip_cd, hp_no, gender, birth_day, del_yn, ins_id) values 
+('1', '1', '1', '1, '1', '1', '1', '1', '1', '1', '1', 'N', 'MASTER')
 
 
 CREATE TABLE `SEMINAR_INFO` (
