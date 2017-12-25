@@ -63,10 +63,11 @@ CREATE TABLE `SEMINAR_INFO` (
   PRIMARY KEY (SEMINAR_ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-접수대기- W(Registration Wait)
-접수신청- R(Registration)
-접수마감- RE(Registration End)
-세미나종료- SE(Seminar End)
+STS_CD, STS_NM :세미나 상태정보
+세미나 접수대기중- W(Registration Wait)
+세미나 접수신청가능- R(Registration)
+세미나 접수마감- RE(Registration End)
+세미나 종료- SE(Seminar End)
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
 ('170715', '2017년도 하계 제직 세미나', 'RE', '접수마감','국민은행', '2100000-01-310000', 30000, "2017-08-01 14:00:01", "2017-08-03 13:59:59", '28182', '경기도 파주시 조리읍 등원로391번길 42 오산리 최자실 기념 금식 기도원 ', 'N', 'MASTER')
@@ -99,13 +100,13 @@ CREATE TABLE `SEMINAR_MNG` (
   PRIMARY KEY (SEMINAR_ID, LOGIN_ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-입금상태(deposit_sts)
+DEPOSIT_STS_CD, DEPOSIT_STS_NM: 입금상태(deposit_sts)
 입금대기 - DW(Deposit_wait)
 입금완료 - DC(Deposit_complete)
 입금실패 - DF(Deposit_fail)
 
-참석자 상태(atnd_sts)
-접수대기 - RW(Register Wait)
+ATND_STS_CD, ATND_STS_NM: 참석자 상태(atnd_sts)
+승인대기 - RW(Register Wait)
 접수승인 - RA(Register Approval)
 접수거절 - RR(Register Refusal)
 

@@ -1,7 +1,7 @@
-var REG_LOGIN = {
+var BNSS_LOGIN = {
     eventListener : function() {
-        $('#findId').on('click', REG_LOGIN.findId);
-        $('#findPw').on('click', REG_LOGIN.findPw);
+        $('#findId').on('click', BNSS_LOGIN.findId);
+        $('#findPw').on('click', BNSS_LOGIN.findPw);
     }
 
     ,findId : function() {
@@ -13,9 +13,8 @@ var REG_LOGIN = {
     }
 };
 
-
 $( document ).ready(function() {
     console.log("Login Page Load start");
-    REG_LOGIN.eventListener();
+    BNSS_LOGIN.eventListener();
     console.log("Login Page Load End");
 });

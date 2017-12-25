@@ -11,9 +11,6 @@ $( document ).ready(function() {
     '<a href="bnssAdmMng.html">세미나 접수 관리</a> ' +
     '</li> ' +
     '<li> ' +
-    '<a href="bnssSeminarReg.html">세미나 등록 관리 </a> ' +
-    '</li> ' +
-    '<li> ' +
     '<a href="bnssSeminarReg.html">세미나 등록 </a> ' +
     '</li> ' +
     '<li> ' +
@@ -40,7 +37,7 @@ $( document ).ready(function() {
     '<a href="bnssUserSmnResult.html">세미나 신청 결과</a> ' +
     '</li> ' +
     '<li> ' +
-    '<a href="bnssUserHistory.html#">세미나 신청 내역</a> ' +
+    '<a href="#">세미나 신청 내역</a> ' +
     '</li> ' +
     '<li class="nav-divider"></li> ' +
     '<li> ' +

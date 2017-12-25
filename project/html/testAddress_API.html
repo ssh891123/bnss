@@ -10,87 +10,163 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- font awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
-    <!-- Custom style -->
-    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+
+    <!-- jQuery 가 필요합니다. -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- 다운로드받지 마시고 CDN 이용하듯 이대로 링크하세요. API 의 버그 수정 등의 변화를 일일히 적용할 필요가 없습니다. ssl 대응되므로 url 을 수정하지 마세요. -->
+    <script src="//xeno.work/roadzip/roadzip.min.js"></script>
 </head>
 
 <body>
 
 
     <article class="container">
-
-
-        <div class="col-md-12">
-            <div class="page-header">
-                <h1>회원가입
-                    <small>세미나 신청 회원가입</small>
-                </h1>
+        <form>
+            <input type="text" class="XenoZipFinder" placeholder="건물명, 동 번지 등 짧게 검색하세요.">
+            <!-- 사용하지 않는 필드는 생략해도 오류나지 않습니다. -->
+            <label for="item_zipcode">우편번호 /* 9월 초 부터 기초구역번호 데이터가 들어갑니다. */</label>
+            <input type="text" id="item_zipcode" name="zipcode">
+        
+            <label for="item_addr">주소</label>
+            <input type="text" id="item_addr" name="addr">
+        
+            <label for="item_addr_remain">상세주소</label>
+            <input type="text" id="item_addr_remain" name="addr_remain">
+        
+            <label for="item_addr_en">영문주소</label>
+            <input type="text" id="item_addr_en" name="addr_en">
+        
+            <label for="item_addr_remain_en">영문상세주소</label>
+            <input type="text" id="item_addr_remain_en" name="addr_remain_en">
+        
+            <label for="item_regionno">기초구역번호</label>
+            <input type="text" id="item_regionno" name="regionno">
+        </form>
+        
+        <!-- form 아래쪽에 적용하면 되고, head 에 넣을경우 $(function() {}); 로 감싸세요. -->
+        <script>
+            $('input.XenoZipFinder').each(XenoZipFinder);
+        </script>
+        
+        <!-- input name 변경 예제 -->
+        <form>
+            <input type="text" class="XenoZipFinder" placeholder="건물명, 동 번지 등 짧게 검색하세요." data-z="zip" data-a="ad" data-r="adr" data-e="ade"
+                data-n="n">
+            <!-- 사용하지 않는 필드는 생략해도 오류나지 않습니다. -->
+            <label for="item_zip">우편번호 /* 9월 초 부터 기초구역번호 데이터가 들어갑니다. */</label>
+            <input type="text" id="item_zip" name="zip">
+        
+            <label for="item_ad">주소</label>
+            <input type="text" id="item_ad" name="ad">
+        
+            <label for="item_adr">상세주소</label>
+            <input type="text" id="item_adr" name="adr">
+        
+            <label for="item_ade">영문주소</label>
+            <input type="text" id="item_ade" name="ade">
+        
+            <label for="item_aden">영문상세주소</label>
+            <input type="text" id="item_aden" name="aden">
+        
+            <label for="item_n">기초구역번호</label>
+            <input type="text" id="item_n" name="n">
+        </form>
+        
+        <!-- data callback 으로 받기 예제 -->
+        <script>
+            function zipCallback(row) {
+                console.log(row); // ie 구버전에는 console 이 없으니 주의.
+            }
+        </script>
+        <input type="text" class="XenoZipFinder" placeholder="건물명, 동 번지 등 짧게 검색하세요." data-callback="zipCallback">
+        
+        <!--
+                        
+                        callback data
+                        
+                        bseq, zseq, // seq (내부적으로만 이용하는 일련번호. 업데이트시 바뀜 - 이용하지 마세요.)
+                        lad1, // 시도명
+                        lad1_en, // 시도 로마자
+                        lad2, // 시군구명
+                        lad2_en, // 시군구 로마자
+                        lad3, // 법정읍면동명
+                        lad3_en, // 법정읍면동 로마자
+                        lad4, // 법정리명
+                        lad4_en, // 법정리 로마자
+                        lawdongcode, // 법정동코드
+                        mountain, // 산여부 0:대지, 1:산
+                        bunji1, // 지번본번
+                        bunji2, // 지번부번
+                        roadcode, // 도로명코드 (시군구코드5 + 도로명번호7)
+                        basement, // 지하여부 0:지상, 1:지하, 2:공중
+                        building1, // 건물본번
+                        building2, // 건물부번
+                        sbuildingname, // 건축물대장 건물명
+                        buildingname, // 상세건물명
+                        buildingcode, // 건물관리번호
+                        buildingcode AS roadaddrcode,
+                        dongcode, // 읍면동일련번호
+                        admindongcode, // 행정동 코드
+                        zipcode, // 우편번호 : 08-17 부터 regionno
+                        zipseq, // 우편번호일련번호 : 08-17 부터 null
+                        hugedelivery, // 다량배달처명
+                        abuildingname, // 시군구 건물명
+                        apartment, // 공동주택여부 0: 비공동주택, 1: 공동주택
+                        regionno, // 기초구역번호
+                        deepaddr, // 상세주소 부여여부 0: 미부여, 1: 부여
+                        roadname, // 도로명
+                        roadname_en, // 도로명 로마자
+                        admindongname, // 행정동명
+                        admindongname_en, // 행정동명 로마자
+                        isdong // 동 여부
+                        
+                        -->
+        
+        
+        <!-- design -->
+        <input type="text" class="XenoZipFinder" placeholder="건물명, 동 번지 등 짧게 검색하세요.">
+        <div class="XenoZipBox">
+            <div class="panel panel-info XenoZipHints">
+                <div class="panel-body">잘 찾는 법: "도로명몇번길 건물번호"로 검색하기</div>
             </div>
-            <form class="form-horizontal">
-                
-
-            <input type="text" id="sample6_postcode" placeholder="우편번호">
-            <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-            <input type="text" id="sample6_address" placeholder="주소">
-            <input type="text" id="sample6_address2" placeholder="상세주소">
-            
-            <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-            <script>
-                function sample6_execDaumPostcode() {
-                    new daum.Postcode({
-                        oncomplete: function(data) {
-                            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-            
-                            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-                            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                            var fullAddr = ''; // 최종 주소 변수
-                            var extraAddr = ''; // 조합형 주소 변수
-            
-                            // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-                            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                                fullAddr = data.roadAddress;
-            
-                            } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                                fullAddr = data.jibunAddress;
-                            }
-            
-                            // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-                            if(data.userSelectedType === 'R'){
-                                //법정동명이 있을 경우 추가한다.
-                                if(data.bname !== ''){
-                                    extraAddr += data.bname;
-                                }
-                                // 건물명이 있을 경우 추가한다.
-                                if(data.buildingName !== ''){
-                                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                                }
-                                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-                                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-                            }
-            
-                            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                            document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
-                            document.getElementById('sample6_address').value = fullAddr;
-            
-                            // 커서를 상세주소 필드로 이동한다.
-                            document.getElementById('sample6_address2').focus();
-                        }
-                    }).open();
-                }
-            </script>
-               
-
-
-            </form>
-            <hr>
+            <div class="panel XenoZipBox1">
+                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr1 XenoActive">서울특별시</a>
+                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr1">부산광역시</a>
+            </div>
+            <div class="panel XenoZipBox2">
+                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr2 XenoActive">금천구</a>
+                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr2">영등포구</a>
+            </div>
+            <div class="panel XenoZipBox3">
+                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr3 XenoHover">시흥동(3)</a>
+                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr3">독산동(4)</a>
+            </div>
+            <div class="row btn-group-vertical col-xs-12 col-sm-12 col-md-12 col-lg-12 XenoZipBox4">
+                <a href="#" class="btn btn-default XenoZipItem XenoZipResult XenoHover" style="overflow:auto;">
+                    <span style="direction:ltr; display:inline-block;">[153-809]서울특별시 금천구 시흥대로130길 34 (독산동,독산제4동 198-49) 브라운캐슬C,씨동</span>
+                </a>
+                <a href="#" class="btn btn-default XenoZipItem XenoZipResult" style="overflow:auto;">
+                    <span style="direction:ltr; display:inline-block;">[153-809]서울특별시 금천구 시흥대로130길 36 (독산동,독산제4동 198-50) 브라운캐슬,비동</span>
+                </a>
+                <a href="#" class="btn btn-default XenoZipItem XenoZipResult" style="overflow:auto; direction:rtl;">
+                    <span style="direction:ltr; display:inline-block;">[153-809]서울특별시 금천구 시흥대로130길 38 (독산동 198-5) 브라운캐슬,에이동</span>
+                </a>
+            </div>
         </div>
+        <!--
+                            input 태그 바로 뒤에 위와 같은 className 의 태그가 만들어집니다.
+                            bootstrap 을 이용한다면 그대로도 이쁘게 출력됩니다.
+                        
+                            이용하지 않는다면 head 에
+                            <link rel="stylesheet" href="//xeno.work/roadzip/roadzip.css">
+                            를 추가하세요.
+                        
+                            위의 태그정보를 이용해서 직접 꾸며도 됩니다.
+                            클릭된 객체에는 XenoActive, 마우스오버 객체에는 XenoHover class 가 적용됩니다.
+                        -->
+
     </article>
 
-    
-    
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     
     
