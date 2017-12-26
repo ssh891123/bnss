@@ -5,46 +5,38 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>UserJoin.html</title>
 
-    <!-- Bootstrap -->
+    <title>회원가입</title>
     <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
-    <!-- font awesome -->
-    <!-- <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" title="no title" charset="utf-8"> -->
-    <!-- Custom style -->
-    <!-- <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8"> -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="../html/import/css/font-awesome.min.css" rel="stylesheet">
+    <script src="../html/import/js/jquery-3.2.1.min/jquery-3.2.1.min.js"></script>
+    <script src="../html/import/js/bootstrap.min.js"></script>
 </head>
 
-<body>    
+<body>
     <article class="container">
-        <!-- 회원가입 예제 -->
-        <!-- http://fhermesiv.mailplug.net/join.php?rq_url=%2Fjoin.php%3Frq_url%3D%252F -->
+
         <div class="col-md-12">
             <div class="page-header">
                 <h1>회원가입
                     <small>세미나 신청 회원가입</small>
                 </h1>
             </div>
-
             <form class="form-horizontal">
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputEmail">ID
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
+
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <input class="form-control" type="text" id="userID" placeholder="ID">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            </span>
+                            <input class="form-control" type="text" placeholder="ID" id="join_userId">
                             <span class="input-group-btn">
-                                <button id="test_1" class="btn btn-info" >ID 중복확인
-                                    <i class="fa fa-mail-forward spaceLeft"></i>
+                                <button class="btn btn-info" id="btn_idDupChk">ID 중복확인
                                 </button>
                             </span>
                         </div>
@@ -53,33 +45,47 @@
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputPassword">비밀번호
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
-                        <input class="form-control" id="inputPassword" type="password" placeholder="비밀번호">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-lock"></i>
+                            </span>
+                            <input class="form-control" type="password" placeholder="비밀번호" id="join_userPw">
+                        </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
-                        <input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-lock"></i>
+                            </span>
+                            <input class="form-control" type="password" placeholder="비밀번호 확인" id="join_userPwCnfm">
+                        </div>
                         <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputEmail">이메일
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <input class="form-control input-check-email" id="inputEmail" type="email" placeholder="이메일">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </div>
+                            <input class="form-control input-check-email" type="email" placeholder="이메일" id="join_userEmail">
                             <span class="input-group-btn">
-                                <button class="btn btn-info" type="button">EMail 중복확인
-                                </button>
+                                <button class="btn btn-info">E-Mail 중복확인 </button>
                             </span>
                         </div>
                     </div>
@@ -87,51 +93,71 @@
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="inputNumber" placeholder="- 없이 입력해 주세요" />
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-phone"></span>
+                            </div>
+                        <input type="tel" class="form-control" placeholder="- 없이 입력해 주세요" id="join_userTelNo" maxlength="11"/>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputName">이름
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
-                        <input class="form-control" id="inputName" type="text" placeholder="이름">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            <input class="form-control" type="text" placeholder="이름" id="join_userNm">
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputGender">성별
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
                         <label class="radio-inline">
-                            <input type="radio" name="sex" id="inlineCheckbox1" value="male" /> Male
+                            <input type="radio" name="sex" value="male" id="join_genderIsM" /> 남자
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="sex" id="inlineCheckbox2" value="female" /> Female
+                            <input type="radio" name="sex" value="female" id="join_genderIsF" /> 여자
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputName">생년월일
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="inputNumber" placeholder="주민번호 앞 6자리 입력해 주세요" />
+                        <div class='input-group'>
+                            <div class="input-group-addon">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            </div>
+                            <input type="tel" class="form-control" placeholder="주민번호 앞 6자리 입력해 주세요" id="join_userBirth" />
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputChurchName">교회이름
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
-                        <input class="form-control" id="inputChurchName" type="text" placeholder="교회 이름">
+                        <input class="form-control" type="text" placeholder="교회 이름" id="join_churchNm">
                     </div>
                 </div>
 
@@ -140,13 +166,14 @@
                 https://www.juso.go.kr/CommonPageLink.do?link=/addrlink/devAddrLinkRequestSample -->
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소
-                            <br> <small class="text-danger">(필수입력)</small>
+                        <br>
+                        <small class="text-danger">(필수입력)</small>
                     </label>
                     <div class="col-sm-6">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="sample6_postcode" placeholder="우편 번호" />
+                            <input type="text" class="form-control" placeholder="우편 번호" id="join_churchZipCd" />
                             <span class="input-group-btn">
-                                <button id="test_1" class="btn btn-warning" >우편번호 찾기
+                                <button class="btn btn-warning">우편번호 찾기
                                     <i class="fa fa-mail-forward spaceLeft"></i>
                                 </button>
                             </span>
@@ -157,42 +184,32 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputChurchAddr1"></label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="sample6_address" placeholder="검색주소" />
+                        <input type="text" class="form-control" placeholder="검색주소" id="join_churchSrchAddr" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="inputChurchAddr2"></label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="sample6_address2" placeholder="상세주소" />
-                    </div>
-                </div>          
-                
-                <div class="form-group">
-                    <div class="col-sm-12 text-center">
-                        <a href="#">
-                            <button class="btn btn-primary" type="submit">회원가입 요청
-                                <i class="fa fa-check spaceLeft"></i>
-                            </button>
-                        </a>
-                        <!-- <button class="btn btn-danger" type="submit">가입취소
-                            <i class="fa fa-times spaceLeft"></i>
-                        </button> -->
+                        <input type="text" class="form-control" placeholder="상세주소" id="join_churchDetlAddr" />
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <div class="col-sm-12 text-center">
+                        <a href="#">
+                            <button class="btn btn-primary" type="submit" id="join_req">회원가입 요청
+                                <i class="fa fa-check spaceLeft"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </form>
-            <hr>
         </div>
     </article>
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="import/js/jquery-3.2.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="../js/common/bnssTopMenu.js"></script>
-    <script src="../js/common/bnssLeftMenu.js"></script>
-    
+    <script src="../js/bnssUserJoin.js"></script>
+
 </body>
 
 </html>
