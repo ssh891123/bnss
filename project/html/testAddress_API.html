@@ -1,175 +1,167 @@
-<!DOCTYPE html>
-<html lang="ko">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>bootstrap template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/JavaScript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<script language="javascript">
 
-    <!-- jQuery 가 필요합니다. -->
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <!-- 다운로드받지 마시고 CDN 이용하듯 이대로 링크하세요. API 의 버그 수정 등의 변화를 일일히 적용할 필요가 없습니다. ssl 대응되므로 url 을 수정하지 마세요. -->
-    <script src="//xeno.work/roadzip/roadzip.min.js"></script>
+function getAddr(){
+	$.ajax({
+		 url :"http://www.juso.go.kr/addrlink/addrLinkApiJsonp.do"  //인터넷망
+		,type:"post"
+		,data:$("#form").serialize()
+		,dataType:"jsonp"
+		,crossDomain:true
+		,success:function(xmlStr){
+			if(navigator.appName.indexOf("Microsoft") > -1){
+				var xmlData = new ActiveXObject("Microsoft.XMLDOM");
+				xmlData.loadXML(xmlStr.returnXml)
+			}else{
+				var xmlData = xmlStr.returnXml;
+			}
+			$("#list").html("");
+			var errCode = $(xmlData).find("errorCode").text();
+			var errDesc = $(xmlData).find("errorMessage").text();
+			if(errCode != "0"){
+				alert(errCode+"="+errDesc);
+			}else{
+				if(xmlStr != null){
+					makeList(xmlData);
+				}
+			}
+		}
+	    ,error: function(xhr,status, error){
+	    	alert("에러발생");
+	    }
+	});
+}
+
+function getAddrLoc(){
+	$.ajax({
+		 url :"/sample/getAddrApi.do"
+		,type:"post"
+		,data:$("#form").serialize()
+		,dataType:"xml"
+		,success:function(xmlStr){
+			$("#list").html("");
+			var errCode = $(xmlStr).find("errorCode").text();
+			var errDesc = $(xmlStr).find("errorMessage").text();
+			if(errCode != "0"){
+				alert(errCode+"="+errDesc);
+			}else{
+				if(xmlStr != null){
+					makeList(xmlStr);
+				}
+			}
+		}
+	    ,error: function(xhr,status, error){
+	    	alert("에러발생");
+	    }
+	});
+}
+
+function makeList(xmlStr){
+	var htmlStr = "";
+	htmlStr += "<table>";
+	$(xmlStr).find("juso").each(function(){
+		htmlStr += "<tr>";
+		htmlStr += "<td>"+$(this).find('roadAddr').text()      +"</td>";
+		htmlStr += "<td>"+$(this).find('roadAddrPart1').text()      +"</td>";
+		htmlStr += "<td>"+$(this).find('roadAddrPart2').text()      +"</td>";
+		htmlStr += "<td>"+$(this).find('jibunAddr').text()     +"</td>";
+		htmlStr += "<td>"+$(this).find('engAddr').text()     +"</td>";
+		htmlStr += "<td>"+$(this).find('zipNo').text()      +"</td>";
+		htmlStr += "<td>"+$(this).find('admCd').text()      +"</td>";
+		htmlStr += "<td>"+$(this).find('rnMgtSn').text()      +"</td>";
+		htmlStr += "<td>"+$(this).find('bdMgtSn').text()      +"</td>";
+		htmlStr += "</tr>";
+	});
+	htmlStr += "</table>";
+	$("#list").html(htmlStr);
+}
+
+function getAddrTest(){
+	$.ajax({
+		 url :"http://www.juso.go.kr/addrlink/addrLinkApiJsonpTest.do"  //인터넷망
+		,type:"post"
+		,data:$("#form").serialize()
+		,dataType:"jsonp"
+		,crossDomain:true
+		,success:function(xmlStr){
+			if(navigator.appName.indexOf("Microsoft") > -1){  //ie경우에만 
+				var xmlData = new ActiveXObject("Microsoft.XMLDOM");
+				xmlData.loadXML(xmlStr.returnXml)
+			}else{
+				var xmlData = xmlStr.returnXml;
+			}
+			$("#list").html("");
+			var errCode = $(xmlData).find("errorCode").text();
+			var errDesc = $(xmlData).find("errorMessage").text();
+			if(errCode != "0"){
+				alert(errCode+"="+errDesc);
+			}else{
+				if(xmlStr != null){
+					makeList(xmlData);
+				}
+			}
+		}
+	    ,error: function(xhr,status, error){
+	    	alert("에러발생");
+	    }
+	});
+}
+function getAddrLocTest(){
+	$.ajax({
+		 url :"/sample/getAddrApiTest.do"
+		,type:"post"
+		,data:$("#form").serialize()
+		,dataType:"xml"
+		,success:function(xmlStr){
+			$("#list").html("");
+			var errCode = $(xmlStr).find("errorCode").text();
+			var errDesc = $(xmlStr).find("errorMessage").text();
+			if(errCode != "0"){
+				alert(errCode+"="+errDesc);
+			}else{
+				if(xmlStr != null){
+					makeList(xmlStr);
+				}
+			}
+		}
+	    ,error: function(xhr,status, error){
+	    	alert("에러발생");
+	    }
+	});
+}
+
+function enterSearch() {
+	var evt_code = (window.netscape) ? ev.which : event.keyCode;
+	if (evt_code == 13) {    
+		event.keyCode = 0;  
+		getAddr(); //jsonp사용시 enter검색 
+		//getAddrLoc(); // controller사용시 enter검색
+	} 
+}
+</script>
+<title>Insert title here</title>
 </head>
-
 <body>
-
-
-    <article class="container">
-        <form>
-            <input type="text" class="XenoZipFinder" placeholder="건물명, 동 번지 등 짧게 검색하세요.">
-            <!-- 사용하지 않는 필드는 생략해도 오류나지 않습니다. -->
-            <label for="item_zipcode">우편번호 /* 9월 초 부터 기초구역번호 데이터가 들어갑니다. */</label>
-            <input type="text" id="item_zipcode" name="zipcode">
-        
-            <label for="item_addr">주소</label>
-            <input type="text" id="item_addr" name="addr">
-        
-            <label for="item_addr_remain">상세주소</label>
-            <input type="text" id="item_addr_remain" name="addr_remain">
-        
-            <label for="item_addr_en">영문주소</label>
-            <input type="text" id="item_addr_en" name="addr_en">
-        
-            <label for="item_addr_remain_en">영문상세주소</label>
-            <input type="text" id="item_addr_remain_en" name="addr_remain_en">
-        
-            <label for="item_regionno">기초구역번호</label>
-            <input type="text" id="item_regionno" name="regionno">
-        </form>
-        
-        <!-- form 아래쪽에 적용하면 되고, head 에 넣을경우 $(function() {}); 로 감싸세요. -->
-        <script>
-            $('input.XenoZipFinder').each(XenoZipFinder);
-        </script>
-        
-        <!-- input name 변경 예제 -->
-        <form>
-            <input type="text" class="XenoZipFinder" placeholder="건물명, 동 번지 등 짧게 검색하세요." data-z="zip" data-a="ad" data-r="adr" data-e="ade"
-                data-n="n">
-            <!-- 사용하지 않는 필드는 생략해도 오류나지 않습니다. -->
-            <label for="item_zip">우편번호 /* 9월 초 부터 기초구역번호 데이터가 들어갑니다. */</label>
-            <input type="text" id="item_zip" name="zip">
-        
-            <label for="item_ad">주소</label>
-            <input type="text" id="item_ad" name="ad">
-        
-            <label for="item_adr">상세주소</label>
-            <input type="text" id="item_adr" name="adr">
-        
-            <label for="item_ade">영문주소</label>
-            <input type="text" id="item_ade" name="ade">
-        
-            <label for="item_aden">영문상세주소</label>
-            <input type="text" id="item_aden" name="aden">
-        
-            <label for="item_n">기초구역번호</label>
-            <input type="text" id="item_n" name="n">
-        </form>
-        
-        <!-- data callback 으로 받기 예제 -->
-        <script>
-            function zipCallback(row) {
-                console.log(row); // ie 구버전에는 console 이 없으니 주의.
-            }
-        </script>
-        <input type="text" class="XenoZipFinder" placeholder="건물명, 동 번지 등 짧게 검색하세요." data-callback="zipCallback">
-        
-        <!--
-                        
-                        callback data
-                        
-                        bseq, zseq, // seq (내부적으로만 이용하는 일련번호. 업데이트시 바뀜 - 이용하지 마세요.)
-                        lad1, // 시도명
-                        lad1_en, // 시도 로마자
-                        lad2, // 시군구명
-                        lad2_en, // 시군구 로마자
-                        lad3, // 법정읍면동명
-                        lad3_en, // 법정읍면동 로마자
-                        lad4, // 법정리명
-                        lad4_en, // 법정리 로마자
-                        lawdongcode, // 법정동코드
-                        mountain, // 산여부 0:대지, 1:산
-                        bunji1, // 지번본번
-                        bunji2, // 지번부번
-                        roadcode, // 도로명코드 (시군구코드5 + 도로명번호7)
-                        basement, // 지하여부 0:지상, 1:지하, 2:공중
-                        building1, // 건물본번
-                        building2, // 건물부번
-                        sbuildingname, // 건축물대장 건물명
-                        buildingname, // 상세건물명
-                        buildingcode, // 건물관리번호
-                        buildingcode AS roadaddrcode,
-                        dongcode, // 읍면동일련번호
-                        admindongcode, // 행정동 코드
-                        zipcode, // 우편번호 : 08-17 부터 regionno
-                        zipseq, // 우편번호일련번호 : 08-17 부터 null
-                        hugedelivery, // 다량배달처명
-                        abuildingname, // 시군구 건물명
-                        apartment, // 공동주택여부 0: 비공동주택, 1: 공동주택
-                        regionno, // 기초구역번호
-                        deepaddr, // 상세주소 부여여부 0: 미부여, 1: 부여
-                        roadname, // 도로명
-                        roadname_en, // 도로명 로마자
-                        admindongname, // 행정동명
-                        admindongname_en, // 행정동명 로마자
-                        isdong // 동 여부
-                        
-                        -->
-        
-        
-        <!-- design -->
-        <input type="text" class="XenoZipFinder" placeholder="건물명, 동 번지 등 짧게 검색하세요.">
-        <div class="XenoZipBox">
-            <div class="panel panel-info XenoZipHints">
-                <div class="panel-body">잘 찾는 법: "도로명몇번길 건물번호"로 검색하기</div>
-            </div>
-            <div class="panel XenoZipBox1">
-                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr1 XenoActive">서울특별시</a>
-                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr1">부산광역시</a>
-            </div>
-            <div class="panel XenoZipBox2">
-                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr2 XenoActive">금천구</a>
-                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr2">영등포구</a>
-            </div>
-            <div class="panel XenoZipBox3">
-                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr3 XenoHover">시흥동(3)</a>
-                <a href="#" class="btn btn-default XenoZipItem XenoZipAddr3">독산동(4)</a>
-            </div>
-            <div class="row btn-group-vertical col-xs-12 col-sm-12 col-md-12 col-lg-12 XenoZipBox4">
-                <a href="#" class="btn btn-default XenoZipItem XenoZipResult XenoHover" style="overflow:auto;">
-                    <span style="direction:ltr; display:inline-block;">[153-809]서울특별시 금천구 시흥대로130길 34 (독산동,독산제4동 198-49) 브라운캐슬C,씨동</span>
-                </a>
-                <a href="#" class="btn btn-default XenoZipItem XenoZipResult" style="overflow:auto;">
-                    <span style="direction:ltr; display:inline-block;">[153-809]서울특별시 금천구 시흥대로130길 36 (독산동,독산제4동 198-50) 브라운캐슬,비동</span>
-                </a>
-                <a href="#" class="btn btn-default XenoZipItem XenoZipResult" style="overflow:auto; direction:rtl;">
-                    <span style="direction:ltr; display:inline-block;">[153-809]서울특별시 금천구 시흥대로130길 38 (독산동 198-5) 브라운캐슬,에이동</span>
-                </a>
-            </div>
-        </div>
-        <!--
-                            input 태그 바로 뒤에 위와 같은 className 의 태그가 만들어집니다.
-                            bootstrap 을 이용한다면 그대로도 이쁘게 출력됩니다.
-                        
-                            이용하지 않는다면 head 에
-                            <link rel="stylesheet" href="//xeno.work/roadzip/roadzip.css">
-                            를 추가하세요.
-                        
-                            위의 태그정보를 이용해서 직접 꾸며도 됩니다.
-                            클릭된 객체에는 XenoActive, 마우스오버 객체에는 XenoHover class 가 적용됩니다.
-                        -->
-
-    </article>
-
-    <script src="js/bootstrap.min.js"></script>
-    
-    
+<form name="form" id="form" method="post">
+ <!-- <div style="display:none;"> -->
+	currentPage : <input type="text" name="currentPage" value="1"/>
+	countPerPage : <input type="text" name="countPerPage" value="10"/> 
+ <!-- </div>  -->
+	confmKey : <input type="text" name="confmKey" id="confmKey" style="width:250px;display:none" value="승인키"/>
+	keyword : <input type="text" name="keyword" value="" onkeydown="enterSearch();"/>
+<br/>
+	<input type="button" onClick="getAddr();" value="주소가져오기_domainChk"/>
+	<input type="button" onClick="getAddrLoc();" value="주소가져오기_ipChk"/>
+	
+	<input type="button" onClick="getAddrTest();" value="개발테스트_주소가져오기_domainChk"/>
+	<input type="button" onClick="getAddrLocTest();" value="개발테스트_주소가져오기_ipChk"/>
+	
+	<div id="list"></div>
+</form>
 </body>
-
 </html>

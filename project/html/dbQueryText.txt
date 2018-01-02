@@ -64,10 +64,10 @@ CREATE TABLE `SEMINAR_INFO` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 STS_CD, STS_NM :세미나 상태정보
-세미나 접수대기중- W(Registration Wait) : 접수 내역에 보이지만, 접수신청을 할수 없는 상태
-세미나 접수신청가능- R(Registration) : 접수 내역에 보이고, 접수 신청을 할수 있음
+세미나 접수대기중- W(Registration Wait) : 접수 내역에 보이지만, 접수신청을 할 수 없는 상태
+세미나 접수신청가능- R(Registration) : 접수 내역에 보이고, 접수 신청을 할 수 있음
 세미나 접수마감- RE(Registration End) : 세미나 기간 후에 접수를 할 수 없는 상태
-세미나 종료- SE(Seminar End) : 세미나 마감 후 오랜 기간 지난 상태
+세미나 종료- SE(Seminar End) : 세미나 마감 후 오랜 기간 지난 상태(사용자 접수정보 수정 불가)
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
 ('170715', '2017년도 하계 제직 세미나', 'RE', '접수마감','국민은행', '2100000-01-310000', 30000, "2017-08-01 14:00:01", "2017-08-03 13:59:59", '28182', '경기도 파주시 조리읍 등원로391번길 42 오산리 최자실 기념 금식 기도원 ', 'N', 'MASTER')
@@ -101,14 +101,14 @@ CREATE TABLE `SEMINAR_MNG` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DEPOSIT_STS_CD, DEPOSIT_STS_NM: 입금상태(deposit_sts)
-입금대기 - DW(Deposit_wait)  : 접수를 했고, 입금을 하지 않은 상태
-입금중 - D(Deposit_)  : 접수를 했고, 참가비를 일부분만 입금한 상태
+입금대기 - DW(Deposit_wait) : 접수를 했고, 입금을 하지 않은 상태
+입금중 - DP(Deposit_partial) : 접수를 했고, 참가비를 일부분만 입금한 상태
 입금완료 - DC(Deposit_complete) : 접수한 후에 참가비를 완전 입금한 상태
-입금실패 - DF(Deposit_fail) : 접수비를 세미나 마감때까지 하지 않은 상태, 접수비를 입금 예정일까지 입금하지 않은 상태
+입금실패 - DF(Deposit_fail) : 접수비를 입금 예정일까지 입금하지 않은 상태, 접수비를 세미나 마감때까지 하지 않은 상태
 
 ATND_STS_CD, ATND_STS_NM: 참석자 상태(atnd_sts)
 승인대기 - RW(Register Wait) : 참가자가 접수를 신청했지만, 관리자가 접수신청을 확인하지 않은 상태
-승인보류 - RD(Register Defer) : 참가자가 접수를 신청했고, 관리자가 확인했지만, 승인를 연기한 상태(접수비 미입금, 참가자 개인적인 요청등)
+승인보류 - RD(Register Defer) : 참가자가 접수를 신청했고, 관리자가 확인했지만, 승인를 연기한 상태(접수비 미입금, 참가자 개인적인 요청, 관리자 견해등)
 접수승인 - RA(Register Approval) : 참가자가 접수했고, 관리자가 접수신청을 승인한 상태
 접수거절 - RR(Register Refusal) : 참가자의 접수신청을 관리자가 취소한 상태
 
