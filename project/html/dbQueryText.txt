@@ -70,16 +70,16 @@ STS_CD, STS_NM :세미나 상태정보
 세미나 종료- SE(Seminar End) : 세미나 마감 후 오랜 기간 지난 상태(사용자 접수정보 수정 불가)
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
-('170715', '2017년도 하계 제직 세미나', 'RE', '접수마감','국민은행', '2100000-01-310000', 30000, "2017-08-01 14:00:01", "2017-08-03 13:59:59", '28182', '경기도 파주시 조리읍 등원로391번길 42 오산리 최자실 기념 금식 기도원 ', 'N', 'MASTER')
+('S1', '2017년도 하계 제직 세미나', 'RE', '접수마감','국민은행', '2100000-01-310000', 30000, "2017-08-01 14:00:01", "2017-08-03 13:59:59", '28182', '경기도 파주시 조리읍 등원로391번길 42 오산리 최자실 기념 금식 기도원 ', 'N', 'MASTER')
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
-('171215', '2018년도 동계 제직 세미나', 'R', '접수신청','신한은행', '100-200-300000', 30000, "2018-01-01 14:00:01", "2018-01-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
+('S2', '2018년도 동계 제직 세미나', 'R', '접수신청','신한은행', '100-200-300000', 30000, "2018-01-01 14:00:01", "2018-01-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
-('180131', '2018년도 2월 목회사 세미나', 'R', '접수신청','신한은행', '100-200-300000', 50000, "2018-02-12 14:00:01", "2018-02-14 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
+('S3', '2018년도 2월 목회사 세미나', 'R', '접수신청','신한은행', '100-200-300000', 50000, "2018-02-12 14:00:01", "2018-02-14 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
-('180715', '2018년도 하계 제직 세미나', 'W', '접수대기','농협', '300-000-0000000', 30000, "2018-08-01 14:00:01", "2018-08-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
+('S4', '2018년도 하계 제직 세미나', 'W', '접수대기','농협', '300-000-0000000', 30000, "2018-08-01 14:00:01", "2018-08-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
 
 
 CREATE TABLE `SEMINAR_MNG` (
@@ -113,25 +113,25 @@ ATND_STS_CD, ATND_STS_NM: 참석자 상태(atnd_sts)
 접수거절 - RR(Register Refusal) : 참가자의 접수신청을 관리자가 취소한 상태
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('170715', 'bnss', '강원주', '우리은행', '1000-333-100000', '120000', 'DW', '입금완료', "2017-07-20 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
+('S1', 'developer', '강원주', '우리은행', '1000-333-100000', '120000', 'DW', '입금완료', "2017-07-20 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('170715', 'bnss', '손성현', '신한은행', '100-333-400000', '30000', 'DW', '입금실패', "2017-12-15 13:00:01", 'RW', '접수거절', '입금일까지 참가비가 입금되지 않음', 'N', 'MASTER')
+('S1', 'adm', '손성현', '신한은행', '100-333-400000', '30000', 'DW', '입금실패', "2017-12-15 13:00:01", 'RW', '접수거절', '입금일까지 참가비가 입금되지 않음', 'N', 'MASTER')
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('170715', 'bnss', '손성문', '카카오뱅크', '1000-222-300000', '150000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER')
+('S1', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '150000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER')
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('171215', 'bnss', '강원주', '우리은행', '1000-333-100000', '200000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '참가비가 입금되지않았음', 'N', 'MASTER')
+('S2', 'counter', '김영희', '우리은행', '1000-333-100000', '200000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '참가비가 입금되지않았음', 'N', 'MASTER')
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('171215', 'bnss', '손성현', '신한은행', '100-333-400000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
+('S2', 'upperSimin', '홍길동', '신한은행', '100-333-400000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('171215', 'bnss', '손성문', '카카오뱅크', '1000-222-300000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER')
+('S2', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER')
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('180131', 'bnss', '일반인', '기업은행', '1000-33-240000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
+('S3', 'simin', '일반인', '기업은행', '1000-33-240000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('180131', 'bnss', '참가자', '하나은행', '00-222-030000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
+('S3', 'simin', '아돌프 블레인 찰스 데이비드 얼 프레더릭 제럴드 허버트 어빈 존 케네스 로이드 마틴 니로 올리버 폴 퀸시 랜돌프 셔먼 토머스 엉커스 빅터 윌리엄 저크시스 얀시 주스', '하나은행', '00-222-030000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
