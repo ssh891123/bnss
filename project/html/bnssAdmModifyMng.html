@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Manager2 사용자 등록 내역</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="import/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="import/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id='div_topMenu'> </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div id='div_leftMenu'> </div>
+
+      
+
+      <main class="col-sm-10">
+
+        <div class="row">
+          <div class="col-sm-10">
+              <h3> 사용자 등록 내역 검색 화면</h3>
+          </div>
+        </div>
+
+        <div class="panel-heading">
+          <div class="row">
+
+            <div class="form-group">
+              <label class="control-label col-sm-1">
+                <p class="text-right">검색 조건</p>
+              </label>
+              <div class="col-sm-2">
+                <select name="find_condition" id="find_condition" class="select form-control">
+                  <option selected="selected" value="-1">전체</option>
+                  <option value="10351">교회명</option>
+                  <option value="10352">신청자</option>          
+                  <option value="10352">입금자</option>          
+                </select>
+              </div>
+              <div class="col col-sm-1"></div>
+
+              <label class="control-label col-sm-1 text-right">검색 주기</label>
+              <div class="col col-sm-2">
+                <select name="find_condition" id="find_condition" class="select form-control">
+                  <option selected="selected" value="-1">전체</option>
+                  <option value="10351">3개월</option>
+                  <option value="10352">1년</option>          
+                  <option value="10353">3년</option>          
+                </select>
+              </div>
+
+              <div class="col col-sm-1"></div>
+              <div class="col col-sm-4">
+                <form action="#" method="get">
+                  <div class="input-group">
+                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+                    <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-hover table-condensed table-list-search" id="tab_logic">
+            <thead>
+              <tr class="success">
+                <th>신청날짜</th>
+                <th>접수번호</th>
+                <th>교회</th>
+                <th>신청자</th>
+                <th>입금자</th>
+                <th>입금일</th>
+                <th>입금액</th>
+                <th>참석인원</th>
+                <th>접수상태</th>
+                <th>정보</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr id='addr0'>
+                <td><p>17-12-01</p></td>
+                <td><p>1</p></td>
+                <td>서울진주초대교회</td>
+                <td>손성문</td>
+                <td>손성현</td>
+                <td>17-12-03</td>
+                <td>50000</td>
+                <td><p class="text-center">1</p></td>
+                <td data-name="sel">
+                  <select name="sel0" style="padding-bottom:2px">
+                    <option value "1" id="btn-offline">접수요청</option>
+                    <option value "2" id="btn-online">접수승인</option>
+                    <option value "3" id="btn-out-of-order">접수기각</option>
+                  </select>
+                </td>
+                <td>
+                  <a data-placement="top" data-toggle="tooltip" title="가입자 정보">
+                    <button class="btn btn-primary btn-xs" data-title="reg_info" data-toggle="modal" data-target="#reg_info">
+                      <span class="glyphicon glyphicon-user"></span>
+                    </button>
+                  </a>
+                  <a data-placement="top" data-toggle="tooltip" title="세미나 신청 정보">
+                    <button class="btn btn-danger btn-xs" data-title="join_info" data-toggle="modal" data-target="#join_info">
+                      <span class="glyphicon glyphicon-pencil">
+                      </span>
+                    </button>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="panel-footer">
+              <div class="row">
+                <div class="col col-sm-4">
+                    <p class="lead">Page 1 of 5</p>
+                </div>
+                <div class="col col-sm-8">
+                  <ul class="pagination hidden-xs pull-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-backward"></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-forward"></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+      <div class="col col-sm-1">
+          <a id="add_row2" class="btn btn-primary pull-left">신청 내역 검색</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="reg_info" tabindex="-1" role="dialog" aria-labelledby="reg_info" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+          <h4 class="modal-title custom_align" id="Heading">신청자 가입 정보</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputEmail">ID</label>
+              <div class="col-sm-8">
+                <input class="form-control" type="text" placeholder="ID" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
+              <div class="col-sm-8">
+                <input class="form-control" id="inputEmail" type="email" placeholder="이메일">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
+              <div class="col-sm-8">
+                <input type="tel" class="form-control" id="inputNumber" placeholder="- 없이 입력해 주세요" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputName">이름</label>
+              <div class="col-sm-8">
+                <input class="form-control" id="inputName" type="text" placeholder="이름">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputGender">성별</label>
+              <div class="col-sm-8">
+                <label class="radio-inline">
+                  <input type="radio" name="sex" id="inlineCheckbox1" value="male" /> Male
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="sex" id="inlineCheckbox2" value="female" /> Female
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputName">생년월일</label>
+              <div class="col-sm-8">
+                <input type="tel" class="form-control" id="inputNumber" placeholder="주민번호 앞 6자리 입력해 주세요" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchName">교회이름</label>
+              <div class="col-sm-8">
+                <input class="form-control" id="inputChurchName" type="text" placeholder="교회 이름">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소</label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="sample6_postcode" placeholder="우편 번호" />
+                  <span class="input-group-btn">
+                    <button id="zipcode" class="btn btn-success">우편번호 찾기
+                      <i class="fa fa-mail-forward spaceLeft"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchAddr1"></label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="sample6_address" placeholder="검색주소" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchAddr2"></label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="sample6_address2" placeholder="상세주소" />
+              </div>
+            </div>
+          </form>
+
+          <!-- <div class="form-group">
+          <input class="form-control " type="text" placeholder="Irshad">
+        </div>
+        <div class="form-group">
+          <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+        </div> -->
+        </div>
+
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;">
+            <span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+        </div>
+      </div>
+      <!-- <div class="modal-footer ">
+      <button type="button" class="btn btn-success">
+        <span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">
+        <span class="glyphicon glyphicon-remove"></span> No</button>
+    </div> -->
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+
+  <div class="modal fade" id="join_info" tabindex="-1" role="dialog" aria-labelledby="join_info" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+          <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+        </div>
+        <div class="modal-body">
+
+          <!-- <div class="alert alert-danger">
+          <span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?
+        </div> -->
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputEmail">교회명</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="서울진주초대교회" name="churchNAME" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputEmail">작성자</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="손성현" name="writterNAME" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputNumber">작성자 연락처</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="010-5194-9831" name="writterPHONE" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소</label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="postcode" placeholder="13468" readonly>
+                  <!-- <span class="input-group-btn">
+                      <button id="zipcode" class="btn btn-success">우편번호 찾기
+                        <i class="fa fa-mail-forward spaceLeft"></i>
+                      </button>
+                    </span> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchAddr1"></label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="address" placeholder="경기 성남시 분당구 판교원로 92" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchAddr2"></label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="address2" placeholder="순복음서울진주초대교회" readonly>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputName">Email</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="ssh891123@hanmail.net" name="eMAIL" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputName">입금자</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="손성현" name="depositNAME" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputName">입금하실 금액</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="50,000" name="depositAMOUNT" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchName">입금일</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" placeholder="입금일 입니다." name="depositDATE" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchName">참석인원</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" placeholder="5명" name="attendance" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="inputChurchName">참석 명단</label>
+              <div class="col-sm-8">
+                  <textarea class="form-control" rows="10" placeholder="강원주, 손성현, 이정빈, 손성문" name="TOTALattendance" readonly></textarea>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer ">i88
+          <button type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span> No</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+    crossorigin="anonymous"></script>
+  <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="import/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="import/js/ie10-viewport-bug-workaround.js"></script>
+  <script src="import/js/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="../js/common/bnssTopMenu.js"></script>
+  <script src="../js/common/bnssLeftMenu.js"></script>
+  <script src="../js/common/bnssGridSrch.js"></script>
+  <script src="table_add.js"></script>
+</body>
+
+</html>
