@@ -60,6 +60,7 @@ CREATE TABLE `SEMINAR_INFO` (
   `DEL_YN` varchar(10),
   `INS_ID` varchar(100),
   `INS_DTM` timestamp default CURRENT_TIMESTAMP,
+  `SEMINAR_PLACE` varchar(500),
   PRIMARY KEY (SEMINAR_ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -69,18 +70,28 @@ STS_CD, STS_NM :세미나 상태정보
 세미나 접수마감- RE(Registration End) : 세미나 기간 후에 접수를 할 수 없는 상태
 세미나 종료- SE(Seminar End) : 세미나 마감 후 오랜 기간 지난 상태(사용자 접수정보 수정 불가)
 
-insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
-('S1', '2017년도 하계 제직 세미나', 'RE', '접수마감','국민은행', '2100000-01-310000', 30000, "2017-08-01 14:00:01", "2017-08-03 13:59:59", '28182', '경기도 파주시 조리읍 등원로391번길 42 오산리 최자실 기념 금식 기도원 ', 'N', 'MASTER')
+insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id, serminar_place) values 
+('S1', '2017년도 하계 제직 세미나', 'RE', '접수마감','국민은행', '2100000-01-310000', 30000, "2017-08-01 14:00:01", "2017-08-03 13:59:59", '28182', '경기도 파주시 조리읍 등원로391번길 42 오산리 최자실 기념 금식 기도원 ', 'N', 'MASTER', '최자실오산리금식기도원')
 
-insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
-('S2', '2018년도 동계 제직 세미나', 'R', '접수신청','신한은행', '100-200-300000', 30000, "2018-01-01 14:00:01", "2018-01-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
+insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id, serminar_place) values 
+('S2', '2018년도 동계 제직 세미나', 'R', '접수신청','신한은행', '100-200-300000', 30000, "2018-01-01 14:00:01", "2018-01-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회')
 
-insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
-('S3', '2018년도 2월 목회사 세미나', 'R', '접수신청','신한은행', '100-200-300000', 50000, "2018-02-12 14:00:01", "2018-02-14 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
+insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id, serminar_place) values 
+('S3', '2018년도 2월 목회사 세미나', 'R', '접수신청','신한은행', '100-200-300000', 50000, "2018-02-12 14:00:01", "2018-02-14 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회')
 
-insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id) values 
-('S4', '2018년도 하계 제직 세미나', 'W', '접수대기','농협', '300-000-0000000', 30000, "2018-08-01 14:00:01", "2018-08-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER')
+insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id, serminar_place) values 
+('S4', '2018년도 하계 제직 세미나', 'W', '접수대기','농협', '300-000-0000000', 30000, "2018-08-01 14:00:01", "2018-08-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회')
 
+
+UPDATE SEMINAR_INFO
+SET SEMINAR_PLACE = ''
+WHERE 1=1
+AND SEMINAR_ID = '';
+
+UPDATE SEMINAR_INFO
+SET SEMINAR_PLACE = '뿡뿡교회'
+WHERE 1=1
+AND SEMINAR_ID = 'S1';
 
 CREATE TABLE `SEMINAR_MNG` (
   `SEMINAR_ID` varchar(100) NOT NULL,
@@ -97,6 +108,8 @@ CREATE TABLE `SEMINAR_MNG` (
   `ATND_REMARK` varchar(1000),
   `DEL_YN` varchar(10),
   `INS_ID` varchar(100),
+  `REG_NO` varchar(200),
+  `ATND_CNT` int(15),
   PRIMARY KEY (SEMINAR_ID, LOGIN_ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -107,31 +120,81 @@ DEPOSIT_STS_CD, DEPOSIT_STS_NM: 입금상태(deposit_sts)
 입금실패 - DF(Deposit_fail) : 접수비를 입금 예정일까지 입금하지 않은 상태, 접수비를 세미나 마감때까지 하지 않은 상태
 
 ATND_STS_CD, ATND_STS_NM: 참석자 상태(atnd_sts)
-승인대기 - RW(Register Wait) : 참가자가 접수를 신청했지만, 관리자가 접수신청을 확인하지 않은 상태
+승인대기 - RW(Register Waiting) : 참가자가 접수를 신청했지만, 관리자가 접수신청을 확인하지 않은 상태
 승인보류 - RD(Register Defer) : 참가자가 접수를 신청했고, 관리자가 확인했지만, 승인를 연기한 상태(접수비 미입금, 참가자 개인적인 요청, 관리자 견해등)
 접수승인 - RA(Register Approval) : 참가자가 접수했고, 관리자가 접수신청을 승인한 상태
-접수거절 - RR(Register Refusal) : 참가자의 접수신청을 관리자가 취소한 상태
+접수거절 - RJ(Register reJect) : 참가자의 접수신청을 관리자가 취소한 상태
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', 'developer', '강원주', '우리은행', '1000-333-100000', '120000', 'DW', '입금완료', "2017-07-20 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER', 'S1_1', '4')
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', 'adm', '손성현', '신한은행', '100-333-400000', '30000', 'DW', '입금실패', "2017-12-15 13:00:01", 'RW', '접수거절', '입금일까지 참가비가 입금되지 않음', 'N', 'MASTER', 'S1_2', '1')
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '150000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER', 'S1_3', '5')
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S2', 'counter', '김영희', '우리은행', '1000-333-100000', '200000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '참가비가 입금되지않았음', 'N', 'MASTER', 'S2_1', 5)
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S2', 'upperSimin', '홍길동', '신한은행', '100-333-400000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER', 'S2_2', '2')
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S2', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER', 'S2_3', '4')
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S3', 'simin', '일반인', '기업은행', '1000-33-240000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER', 'S3_1', '2')
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S1', 'developer', '강원주', '우리은행', '1000-333-100000', '120000', 'DW', '입금완료', "2017-07-20 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
+('S3', 'simin', '아돌프 블레인 찰스 데이비드 얼 프레더릭 제럴드 허버트 어빈 존 케네스 로이드 마틴 니로 올리버 폴 퀸시 랜돌프 셔먼 토머스 엉커스 빅터 윌리엄 저크시스 얀시 주스', '하나은행', '00-222-030000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER', 'S3_2', '5')
 
-insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S1', 'adm', '손성현', '신한은행', '100-333-400000', '30000', 'DW', '입금실패', "2017-12-15 13:00:01", 'RW', '접수거절', '입금일까지 참가비가 입금되지 않음', 'N', 'MASTER')
+UPDATE SEMINAR_MNG SET LOGIN_ID = 'sshssh' WHERE SEMINAR_ID = 'S1';
+UPDATE SEMINAR_MNG SET LOGIN_ID = 'upperSimin' WHERE SEMINAR_ID = 'S2';
+UPDATE SEMINAR_MNG SET LOGIN_ID = '가나다' WHERE SEMINAR_ID = 'S3';
 
-insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S1', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '150000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER')
+UPDATE SEMINAR_MNG
+SET DEPOSIT_STS_CD = 'RA'
+WHERE 1=1
+AND SEMINAR_ID = 'S1';
 
-insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S2', 'counter', '김영희', '우리은행', '1000-333-100000', '200000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '참가비가 입금되지않았음', 'N', 'MASTER')
+UPDATE SEMINAR_MNG
+SET DEPOSIT_STS_CD = 'RW'
+WHERE 1=1
+AND SEMINAR_ID = 'S2';
 
-insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S2', 'upperSimin', '홍길동', '신한은행', '100-333-400000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
+UPDATE SEMINAR_MNG
+SET DEPOSIT_STS_CD = 'RA'
+WHERE 1=1
+AND SEMINAR_ID = 'S3';
+--------------------------
 
-insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S2', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER')
+UPDATE SEMINAR_MNG
+SET REG_NO = 'S1_1'
+WHERE 1=1
+AND SEMINAR_ID = 'S1';
 
-insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S3', 'simin', '일반인', '기업은행', '1000-33-240000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
+UPDATE SEMINAR_MNG
+SET REG_NO = 'S2_1'
+WHERE 1=1
+AND SEMINAR_ID = 'S2';
 
-insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S3', 'simin', '아돌프 블레인 찰스 데이비드 얼 프레더릭 제럴드 허버트 어빈 존 케네스 로이드 마틴 니로 올리버 폴 퀸시 랜돌프 셔먼 토머스 엉커스 빅터 윌리엄 저크시스 얀시 주스', '하나은행', '00-222-030000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER')
+UPDATE SEMINAR_MNG
+SET REG_NO = 'S3_1'
+WHERE 1=1
+AND SEMINAR_ID = 'S3';
+--------------------------
+UPDATE SEMINAR_MNG
+SET ATND_CNT = '4'
+WHERE 1=1
+AND SEMINAR_ID = 'S1';
+
+UPDATE SEMINAR_MNG
+SET ATND_CNT = '1'
+WHERE 1=1
+AND SEMINAR_ID = 'S2';
+
+UPDATE SEMINAR_MNG
+SET ATND_CNT = '2'
+WHERE 1=1
+AND SEMINAR_ID = 'S3'
