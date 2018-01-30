@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>bnssJointerInfoModal</title>
+    
+    <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../html/import/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" style="margin-top: 20px">
+        <div class="col-md-8 col-md-offset-2">
+
+            <div class="panel panel-info">     
+                <div class="panel-heading">
+                    <h1 class="panel-title">신청자 가입 정보</h1>
+                </div>
+                <h1 class="lead"></h1>
+
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputID">ID</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </div>
+                                <input type="text" class="form-control" name="writterNAME" id="findId" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 control-label" for="inputNumber">연락처</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-phone"></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="-없이 입력해주세요" name="writterPHONE" id="findIdHpNo" 
+                                    onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;' maxlength="11">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 control-label" for="inputEmail">E-Mail</label>
+                        <div class="col-sm-8">
+                            <div class="control-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                    </div>
+                                    <input type="email" class="form-control" name="writterNAME" id="findIdEmail" onkeydown="validationEmail()">
+                                </div>
+                            </div>
+                            <div class="form-group has-error">
+                                <div class="col-sm-11">
+                                    <span class="help-block" id="emailValidation" ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-1"></div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <p id="findIdCnfm" class="text-center">
+                                <a href="#" class="btn btn-primary btn-block" role="button">확인</a>
+                            </p> 
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <div class="modal fade" id="reg_info" tabindex="-1" role="dialog" aria-labelledby="reg_info" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>
+              <h4 class="modal-title custom_align" id="Heading">신청자 가입 정보</h4>
+            </div>
+    
+            <div class="modal-body">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputEmail">ID</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="text" placeholder="ID" readonly>
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" id="inputEmail" type="email" placeholder="이메일">
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
+                  <div class="col-sm-8">
+                    <input type="tel" class="form-control" id="inputNumber" placeholder="- 없이 입력해 주세요" />
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputName">이름</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" id="inputName" type="text" placeholder="이름">
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputGender">성별</label>
+                  <div class="col-sm-8">
+                    <label class="radio-inline">
+                      <input type="radio" name="sex" id="inlineCheckbox1" value="male" /> Male
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="sex" id="inlineCheckbox2" value="female" /> Female
+                    </label>
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputName">생년월일</label>
+                  <div class="col-sm-8">
+                    <input type="tel" class="form-control" id="inputNumber" placeholder="주민번호 앞 6자리 입력해 주세요" />
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputChurchName">교회이름</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" id="inputChurchName" type="text" placeholder="교회 이름">
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소</label>
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="sample6_postcode" placeholder="우편 번호" />
+                      <span class="input-group-btn">
+                        <button id="zipcode" class="btn btn-success">우편번호 찾기
+                          <i class="fa fa-mail-forward spaceLeft"></i>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputChurchAddr1"></label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="sample6_address" placeholder="검색주소" />
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputChurchAddr2"></label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="sample6_address2" placeholder="상세주소" />
+                  </div>
+                </div>
+              </form>
+            </div>
+    
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-warning btn-lg" style="width: 100%;">
+                <span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+            </div>
+          </div>
+    
+        </div>
+        
+      </div>
+    
+    <script src="../html/import/js/jquery-3.2.1.min/jquery-3.2.1.min.js"></script>    
+    <script src="../html/import/js/bootstrap.min.js"></script>
+    <script src="../js/bnssFindIdP01.js"></script>
+    <script src="../js/bnssFormValidation.js"></script>
+
+</body>
+
+</html>

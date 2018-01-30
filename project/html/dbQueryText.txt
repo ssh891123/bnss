@@ -71,16 +71,16 @@ STS_CD, STS_NM :세미나 상태정보
 세미나 종료- SE(Seminar End) : 세미나 마감 후 오랜 기간 지난 상태(사용자 접수정보 수정 불가)
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id, serminar_place) values 
-('S1', '2017년도 하계 제직 세미나', 'RE', '접수마감','국민은행', '2100000-01-310000', 30000, "2017-08-01 14:00:01", "2017-08-03 13:59:59", '28182', '경기도 파주시 조리읍 등원로391번길 42 오산리 최자실 기념 금식 기도원 ', 'N', 'MASTER', '최자실오산리금식기도원')
+('S1', '2017년도 하계 제직 세미나', 'RE', '접수마감','국민은행', '2100000-01-310000', 30000, "2017-08-01 14:00:01", "2017-08-03 13:59:59", '28182', '경기도 파주시 조리읍 등원로391번길 42 오산리 최자실 기념 금식 기도원 ', 'N', 'MASTER', '최자실오산리금식기도원');
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id, serminar_place) values 
-('S2', '2018년도 동계 제직 세미나', 'R', '접수신청','신한은행', '100-200-300000', 30000, "2018-01-01 14:00:01", "2018-01-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회')
+('S2', '2018년도 동계 제직 세미나', 'R', '접수신청','신한은행', '100-200-300000', 30000, "2018-01-01 14:00:01", "2018-01-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회');
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id, serminar_place) values 
-('S3', '2018년도 2월 목회사 세미나', 'R', '접수신청','신한은행', '100-200-300000', 50000, "2018-02-12 14:00:01", "2018-02-14 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회')
+('S3', '2018년도 2월 목회사 세미나', 'R', '접수신청','신한은행', '100-200-300000', 50000, "2018-02-12 14:00:01", "2018-02-14 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회');
 
 insert into seminar_info (seminar_id, seminar_nm, sts_cd, sts_nm, bank_nm, accnt_no, amt, start_dtm, end_dtm, zip_cd, seminar_addr, del_yn, ins_id, serminar_place) values 
-('S4', '2018년도 하계 제직 세미나', 'W', '접수대기','농협', '300-000-0000000', 30000, "2018-08-01 14:00:01", "2018-08-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회')
+('S4', '2018년도 하계 제직 세미나', 'W', '접수대기','농협', '300-000-0000000', 30000, "2018-08-01 14:00:01", "2018-08-03 13:59:59", '28182', '충청북도 청주시 서원구 남이면 남석로 104-15', 'N', 'MASTER', '청원진주초대교회');
 
 
 UPDATE SEMINAR_INFO
@@ -120,34 +120,34 @@ DEPOSIT_STS_CD, DEPOSIT_STS_NM: 입금상태(deposit_sts)
 입금실패 - DF(Deposit_fail) : 접수비를 입금 예정일까지 입금하지 않은 상태, 접수비를 세미나 마감때까지 하지 않은 상태
 
 ATND_STS_CD, ATND_STS_NM: 참석자 상태(atnd_sts)
-승인대기 - RW(Register Waiting) : 참가자가 접수를 신청했지만, 관리자가 접수신청을 확인하지 않은 상태
+접수 요청, 승인대기 - RW(Register Waiting) : 참가자가 접수를 신청했지만, 관리자가 접수신청을 확인하지 않은 상태
 승인보류 - RD(Register Defer) : 참가자가 접수를 신청했고, 관리자가 확인했지만, 승인를 연기한 상태(접수비 미입금, 참가자 개인적인 요청, 관리자 견해등)
 접수승인 - RA(Register Approval) : 참가자가 접수했고, 관리자가 접수신청을 승인한 상태
-접수거절 - RJ(Register reJect) : 참가자의 접수신청을 관리자가 취소한 상태
+접수기각, 접수거절 - RJ(Register reJect) : 참가자의 접수신청을 관리자가 취소한 상태
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
-('S1', 'developer', '강원주', '우리은행', '1000-333-100000', '120000', 'DW', '입금완료', "2017-07-20 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER', 'S1_1', '4')
+('S1', 'developer', '강원주', '우리은행', '1000-333-100000', '120000', 'DC', '입금완료', "2017-07-20 14:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S1_1', '4');
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
-('S1', 'adm', '손성현', '신한은행', '100-333-400000', '30000', 'DW', '입금실패', "2017-12-15 13:00:01", 'RW', '접수거절', '입금일까지 참가비가 입금되지 않음', 'N', 'MASTER', 'S1_2', '1')
+('S1', 'adm', '손성현', '신한은행', '100-333-400000', '30000', 'DF', '입금실패', "2017-12-15 13:00:01", 'RJ', '접수거절', '입금일까지 참가비가 입금되지 않음', 'N', 'MASTER', 'S1_2', '1');
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
-('S1', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '150000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER', 'S1_3', '5')
+('S1', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '150000', 'DC', '입금완료', "2017-12-24 14:00:01", 'RJ', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER', 'S1_3', '5');
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
-('S2', 'counter', '김영희', '우리은행', '1000-333-100000', '200000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '참가비가 입금되지않았음', 'N', 'MASTER', 'S2_1', 5)
+('S2', 'counter', '김영희', '우리은행', '1000-333-100000', '200000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '참가비가 입금되지않았음', 'N', 'MASTER', 'S2_1', 5);
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
-('S2', 'upperSimin', '홍길동', '신한은행', '100-333-400000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER', 'S2_2', '2')
+('S2', 'upperSimin', '홍길동', '신한은행', '100-333-400000', '100000', 'DC', '입금완료', "2017-12-15 13:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S2_2', '2');
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
-('S2', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER', 'S2_3', '4')
+('S2', 'simin', '손성문', '카카오뱅크', '1000-222-300000', '200000', 'DC', '입금완료', "2017-12-24 14:00:01", 'RJ', '접수거절', '입금했지만, 참가를 못하는 상황이라 접수거절', 'N', 'MASTER', 'S2_3', '4');
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
-('S3', 'simin', '일반인', '기업은행', '1000-33-240000', '100000', 'DW', '입금완료', "2017-12-15 13:00:01", 'RW', '접수승인', '', 'N', 'MASTER', 'S3_1', '2')
+('S3', 'simin', '일반인', '기업은행', '1000-33-240000', '100000', 'DC', '입금완료', "2017-12-15 13:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S3_1', '2');
 
 insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id) values
-('S3', 'simin', '아돌프 블레인 찰스 데이비드 얼 프레더릭 제럴드 허버트 어빈 존 케네스 로이드 마틴 니로 올리버 폴 퀸시 랜돌프 셔먼 토머스 엉커스 빅터 윌리엄 저크시스 얀시 주스', '하나은행', '00-222-030000', '200000', 'DW', '입금완료', "2017-12-24 14:00:01", 'RW', '접수승인', '', 'N', 'MASTER', 'S3_2', '5')
+('S3', 'simin', '아돌프 블레인 찰스 데이비드 얼 프레더릭 제럴드 허버트 어빈 존 케네스 로이드 마틴 니로 올리버 폴 퀸시 랜돌프 셔먼 토머스 엉커스 빅터 윌리엄 저크시스 얀시 주스', '하나은행', '00-222-030000', '200000', 'DC', '입금완료', "2017-12-24 14:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S3_2', '5');
 
 UPDATE SEMINAR_MNG SET LOGIN_ID = 'sshssh' WHERE SEMINAR_ID = 'S1';
 UPDATE SEMINAR_MNG SET LOGIN_ID = 'upperSimin' WHERE SEMINAR_ID = 'S2';
@@ -198,3 +198,114 @@ UPDATE SEMINAR_MNG
 SET ATND_CNT = '2'
 WHERE 1=1
 AND SEMINAR_ID = 'S3'
+
+---------------------------
+
+update SEMINAR_MNG
+set ATND_STS_CD = 'RA'
+where 1=1
+and ATND_STS_NM = '접수승인';
+
+update SEMINAR_MNG
+set ATND_STS_CD = 'RW'
+where 1=1
+and ATND_STS_NM = '접수요청';
+
+update SEMINAR_MNG
+set ATND_STS_CD = 'RJ'
+where 1=1
+and ATND_STS_NM = '접수기각';
+
++--------+--------------------------+-----------------+--------------+---------------------+---------------+-------------+--------------+----------+
+| REG_NO | CHURCH_NM                | USER_NM         | DEPOSITOR_NM | DEPOSIT_DTM         | DEPOSITOR_AMT | ATND_STS_CD | ATND_STS_NM  | ATND_CNT |
++--------+--------------------------+-----------------+--------------+---------------------+---------------+-------------+--------------+----------+
+| S1_1   | 교회이름                 | NULL            | 강원주       | 2017-07-20 14:00:01 |        120000 | RW          | 접수승인     |        4 |
+| S2_1   | 여의도순복음교회         | 높은일반인      | 강원주       | 2017-12-24 14:00:01 |        200000 | RW          | 접수대기     |        1 |
+| S3_1   | 서울진주초대교회         | 가나다          | 일반인       | 2017-12-15 13:00:01 |        100000 | RW          | 접수승인     |        2 |
++--------+--------------------------+-----------------+--------------+---------------------+---------------+-------------+--------------+----------+
+
++--------+-----------------------------------+-----------------+--------------+---------------------+---------------+-------------+--------------+----------+
+| REG_NO | SEMINAR_PLACE                     | USER_NM         | DEPOSITOR_NM | DEPOSIT_DTM         | DEPOSITOR_AMT | ATND_STS_CD | ATND_STS_NM  | ATND_CNT |
++--------+-----------------------------------+-----------------+--------------+---------------------+---------------+-------------+--------------+----------+
+| S1_1   | 최자실오산리금식기도원            | NULL            | 강원주       | 2017-07-20 14:00:01 |        120000 | RW          | 접수승인     |        4 |
+| S2_1   | 청원진주초대교회                  | 높은일반인      | 강원주       | 2017-12-24 14:00:01 |        200000 | RW          | 접수대기     |        1 |
+| S3_1   | 청원진주초대교회                  | 가나다          | 일반인       | 2017-12-15 13:00:01 |        100000 | RW          | 접수승인     |        2 |
++--------+-----------------------------------+-----------------+--------------+---------------------+---------------+-------------+--------------+----------+
+
++-----------------+---------------------+-----------------+---------+----------------------------+-------------------------------------------------------------+-----------------------------+-------------------------------+---------------------------+--------+-----------+--------+----------+---------------------+
+| LOGIN_ID        | PW                  | USER_NM         | AUTH_LV | CHURCH_NM                  | CHURCH_ADDR                                                 | EMAIL_ADDR                  | ZIP_CD                        | HP_NO                     | GENDER | BIRTH_DAY | DEL_YN | INS_ID   | INS_DTM             |
++-----------------+---------------------+-----------------+---------+----------------------------+-------------------------------------------------------------+-----------------------------+-------------------------------+---------------------------+--------+-----------+--------+----------+---------------------+
+| 1               | 1                   | 1               | LV1     | 1                          | 1                                                           | 1                           | 1                             | 1                         | 1      | 1         | N      | MASTER   | 2017-12-20 22:40:26 |
+| 1123            | a                   | NULL            | LV1     | a                          | a a                                                         | adsf@asdf.adf               | a                             | a                         | M      | a         | N      | MASTER   | 2018-01-02 23:21:25 |
+| a               | a                   | asdf            | LV1     | asdf                       | adf asfd                                                    | a                           | adsf                          | asdf                      | F      | asdf      | N      | MASTER   | 2017-12-25 19:41:28 |
+| aaa             | 123                 | 가가가          | LV2     | 1                          | 12                                                          | aaa@gmail.com               | 123                           | 11112222                  | M      | 1234      | N      | MASTER   | 2017-12-16 20:28:47 |
+| adf             | 123                 | NULL            | LV1     | 123                        | 123 123                                                     | 123@123123.123              | 123                           | 123                       | M      | 123       | N      | MASTER   | 2018-01-02 23:20:15 |
+| adm             | qwe123              | 관리자          | LV4     | 진주초대교회               | 경상남도 진주시 남강 로 1351                                 | adminProject@gmail.com      | 52781                         | 01023456789               | F      | 19901115  | N      | MASTER   | 2017-12-16 00:47:45 |
+| admin           | adminpass1q2w3e4r%T | NULL            | NULL    | NULL                       | NULL                                                        | NULL                        | NULL                          | NULL                      | NULL   | NULL      | NULL   | by_wonju | 2017-11-29 22:59:04 |
+| ads             | 12                  | adf             | LV1     | asdf                       | adf afd                                                     | adf                         | asdf                          | adsf                      | F      | adf       | N      | MASTER   | 2017-12-25 19:38:35 |
+| asdf            | 12                  | NULL            | LV1     | 123                        | 123 123                                                     | asdf@asdf.adsf              | 123                           | 123123                    | M      | 123       | N      | MASTER   | 2018-01-02 23:18:41 |
+| asdfasdfasdfasd | 123                 | NULL            | LV1     | asdfas                     | sdafsdafasdf asdfasdf                                       | sdaf@adsf.adf               | asdfasdfasdf                  | 123                       | F      | 123       | N      | MASTER   | 2018-01-02 23:24:38 |
+| b               | b                   | b               | LV1     | b                          | b b                                                         | b                           | b                             | b                         | M      | b         | N      | MASTER   | 2017-12-26 22:49:01 |
+| bbb             | 123                 | 나나나          | LV4     | 1                          | 12                                                          | bbb@gmail.com               | 123                           | 22223333                  | M      | 1234      | N      | MASTER   | 2017-12-16 20:28:53 |
+| c               | c                   | c               | LV1     | c                          | c c                                                         | c                           | c                             | c                         | M      | c         | N      | MASTER   | 2017-12-26 23:00:12 |
+| counter         | qwe123              | 접수담당자      | LV3     | 청원진주초대교회           | 충청북도 청주시 서원 구 남이면 남석로 104-15                 | counterProject@gmail.com    | 28182                         | 01034567890               | M      | 19911015  | N      | MASTER   | 2017-12-16 00:47:54 |
+| d               | d                   | d               | LV1     | d                          | d d                                                         | d                           | d                             | d                         | M      | d         | N      | MASTER   | 2017-12-26 23:18:33 |
+| developer       | qwe123              | 개발자          | LV5     | 서울진주초대교회           | 경기도 성남시 분당구 판교원로 92                            | bnssProject@gmail.com       | 13468                         | 01012345678               | M      | 19891215  | N      | MASTER   | 2017-12-16 00:43:31 |
+| simin           | qwe123              | 일반인          | LV1     | 지구촌교회                 | 경기도 성남시 분당구 구미동 10                              | siminProject@gmail.com      | 13630                         | 01056789012               | M      | 19930815  | N      | MASTER   | 2017-12-16 00:49:38 |
+| ssh891123       | 123                 | NULL            | LV1     | 서울진주초대교회           | 123123123 123123                                            | 123@hanmai.net              | 아무거나 테슽                 | 01231230123Don'tContactMe | M      | 891123    | N      | MASTER   | 2018-01-02 23:28:04 |
+| sshssh          | 123123              | NULL            | LV1     | 교회이름                   | 검색주소 상세주소                                           | sshssh@gmail.com            | 교회주소                      | 01012345678               | M      | 11223333  | N      | MASTER   | 2018-01-10 22:04:53 |
+| upperSimin      | qwe123              | 높은일반인      | LV2     | 여의도순복음교회           | 서울특별시 영등포구  국회대로76길 25                         | upperSiminProject@gmail.com | 07239                         | 01045678901               | F      | 19920915  | N      | MASTER   | 2017-12-16 00:49:20 |
+| 가나다          | 123123              | 가나다          | LV1     | 서울진주초대교회           | 대원리 123                                                  | ssh123@hanmail.net          | 경기도 파주시 조리읍          | Don'tContactMe            | M      | bc2000    | N      | MASTER   | 2018-01-02 23:09:14 |
+| 나나나          | 123                 | NULL            | LV1     | 바람같이 사라진다.         | 경기도 성남시 분당구 성우스타우스                           | 123@han.net                 | 경기도 파주시 롯본기          | 6000                      | M      | 19230101  | N      | MASTER   | 2018-01-02 23:23:23 |
+| 노노노          | rkrkrk              | BusinessMan     | LV1     | 성우스타우스               | 구미동 성우스타우스 .                                       | ssh891123@hanmail.net       | 경기도 성남시 분당구          | NotMyBusiness             | F      | dc5000    | N      | MASTER   | 2018-01-02 23:20:04 |
++-----------------+---------------------+-----------------+---------+----------------------------+-------------------------------------------------------------+-----------------------------+-------------------------------+---------------------------+--------+-----------+--------+----------+---------------------+
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', 'developer', '개발자', '우리은행', '1000-333-100000', '120000', 'DC', '입금완료', "2017-07-20 14:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S1_1', '4');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', 'adm', '관리자', '신한은행', '100-333-400000', '30000', 'DF', '입금실패', "2017-12-15 13:00:01", 'RJ', '접수기각', '입금일까지 참가비가 입금되지 않음', 'N', 'MASTER', 'S1_2', '1');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', 'simin', '일반인', '카카오뱅크', '1000-222-300000', '150000', 'DC', '입금완료', "2017-12-24 14:00:01", 'RJ', '접수기각', '입금했지만, 참가를 못하는 상황', 'N', 'MASTER', 'S1_3', '5');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', '가나다', '가나다', '카카오뱅크', '1000-222-300000', '150000', 'DC', '입금완료', "2017-12-24 14:00:01", 'RW', '접수대기', '입금', 'N', 'MASTER', 'S1_4', '5');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', '나나나', 'NULL', '카카오뱅크', '1000-222-300000', '150000', 'DC', '입금완료', "2017-12-24 14:00:01", 'RW', '접수대기', '입금', 'N', 'MASTER', 'S1_5', '5');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', 'b', 'b', '국민은행', '1000-222-300000', '150000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '입금', 'N', 'MASTER', 'S1_6', '5');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S1', '1', '1', '국민은행', '1000-222-300000', '150000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '입금', 'N', 'MASTER', 'S1_7', '5');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S2', 'counter', '접수담당자', '우리은행', '1000-333-100000', '200000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '참가비가 입금되지않았음', 'N', 'MASTER', 'S2_1', '5');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S2', 'upperSimin', '높은일반인', '신한은행', '100-333-400000', '80000', 'DC', '입금완료', "2017-12-15 13:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S2_2', '2');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S2', 'simin', '일반인', '하늘은행', '000000', '160000', 'DC', '입금완료', "2017-12-24 14:00:01", 'RA', '접수승인', '입금 완료', 'N', 'MASTER', 'S2_3', '4');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S2', 'sshssh', 'NULL', '하나은행', '1000-222-300000', '80000', 'DW', '입금대기', "2017-12-24 14:00:01", 'RW', '접수대기', '입금 대기', 'N', 'MASTER', 'S2_4', '2');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S2', 'bbb', '나나나', '카카오뱅크', '1000-222-300000', '40000', 'DC', '입금완료', "2017-12-24 14:00:01", 'RJ', '접수기각', '입금했지만, 참가를 못하는 상황', 'N', 'MASTER', 'S2_5', '1');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S3', 'simin', '일반인', '기업은행', '1000-33-240000', '80000', 'DC', '입금완료', "2017-12-15 13:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S3_1', '2');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S3', 'ssh891123', '입금자', '기업은행', '1000-33-240000', '40000', 'DC', '입금완료', "2017-12-15 13:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S3_2', '1');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S3', 'd', 'd', '기업은행', '1000-33-240000', '160000', 'DC', '입금완료', "2017-12-15 13:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S3_3', '4');
+
+insert into seminar_mng (seminar_id, login_id, depositor_nm, depositor_bank_nm, depositor_accnt_no, depositor_amt, deposit_sts_cd, deposit_sts_nm, deposit_dtm, atnd_sts_cd, atnd_sts_nm, atnd_remark, del_yn, ins_id, reg_no, atnd_cnt) values
+('S3', 'asdfasdfasdfasd', '입금자', '기업은행', '1000-33-240000', '40000', 'DC', '입금완료', "2017-12-15 13:00:01", 'RA', '접수승인', '', 'N', 'MASTER', 'S3_4', '1');
+
+
