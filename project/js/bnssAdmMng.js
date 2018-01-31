@@ -107,7 +107,7 @@ var ADM_MNG = {
             ADM_MNG.pageNo -= 1;
             $('#id_tbody').text('');
             $('#id_tbody').append( ADM_MNG.srchList[ ADM_MNG.pageNo - 1 ] );
-            $('#a_pageNo').text( ADM_MNG.pageNo );
+            //$('#li_pageNo').text( ADM_MNG.pageNo );
         });
 
         $('#li_nextPage').on('click', function() {
@@ -119,7 +119,7 @@ var ADM_MNG = {
             ADM_MNG.pageNo += 1;
             $('#id_tbody').text('');
             $('#id_tbody').append( ADM_MNG.srchList[ ADM_MNG.pageNo - 1 ] );
-            $('#a_pageNo').text( ADM_MNG.pageNo );
+           // $('#li_pageNo').text( ADM_MNG.pageNo );
         });
     }
 };
