@@ -1,68 +1,133 @@
-var REG_LOGIN = {
+var ADM_MNG = {
 
-    onCallBackForZipCd : function(){
-console.log('call back start');
+    srchList : []
+    ,pageNo : 1
 
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+    ,onSearch : function() {
+        $.ajax({
+            url: "/admMng/getUserReqList",
+            type: "POST",
+            dataType: "json",
+            data: {                
+            },
+            complete: function(data) {
+                console.log( 'completed' );
+            },
+            success: function(data) {
+                console.log( 'success' );
+                console.log(data);  
+                ADM_MNG.onMakeGrid(data);
+            },
+            error: function() {
 
-                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var fullAddr = ''; // 최종 주소 변수
-                var extraAddr = ''; // 조합형 주소 변수
-
-                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                    fullAddr = data.roadAddress;
-
-                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                    fullAddr = data.jibunAddress;
-                }
-
-                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-                if(data.userSelectedType === 'R'){
-                    //법정동명이 있을 경우 추가한다.
-                    if(data.bname !== ''){
-                        extraAddr += data.bname;
-                    }
-                    // 건물명이 있을 경우 추가한다.
-                    if(data.buildingName !== ''){
-                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-                }
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('sample6_address').value = fullAddr;
-
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById('sample6_address2').focus();
-            }
-        }).open();
-      
+            },
+        });
+    }
+    
+    ,onMakeGrid : function(data) {
+        var rowcnt = Object.keys(data).length;
         
+        var trHTML = '';
+        var forcnt = 0;
+
+        for( var key in data ) {
+            console.log( key + '=>' + data[key] );
+            var date = new Date(data[key].depositDtm);
+            var curr_date = date.getDate();
+            var curr_month = date.getMonth() + 1; //Months are zero based
+            var curr_year = date.getFullYear();
+
+            var rwHTML = '';
+            var raHTML = '';
+            var rjHTML = '';
+            if( data[key].atndStsCd == 'RW' ) {
+                rwHTML = 'selected="selected"';
+            }else if( data[key].atndStsCd == 'RA' ) {
+                raHTML = 'selected="selected"';
+            }else if( data[key].atndStsCd == 'RJ' ) {
+                rjHTML = 'selected="selected"';
+            }
+            
+            trHTML += (`<tr id='tr_` + key + `'>` 
+                        + `<td><p>` + (Number(key)+1) + `</p></td>`
+                        + `<td>` + data[key].churchNm + `</td>`
+                        + `<td>` + data[key].userNm + `</td>`
+                        + `<td>` + data[key].depositorNm + `</td>`
+                        + `<td>` + curr_year + "-" + curr_month + "-" + curr_date + `</td>`
+                        + `<td>` + data[key].depositorAmt + `</td>`
+                        + `<td>` + data[key].atndCnt + `</td>`
+                        + `<td data-name="sel">
+                        <select name="sel0" style="padding-bottom:2px">
+                            <option ` + rwHTML + `value "1" id="btn-offline">접수요청</option>
+                            <option ` + raHTML + `value "2" id="btn-online">접수승인</option>
+                            <option ` + rjHTML + `value "3" id="btn-out-of-order">접수기각</option>
+                        </select>
+                        </td>
+                        <td>
+                        <a data-placement="top" data-toggle="tooltip" title="가입자 정보">
+                            <button class="btn btn-primary btn-xs" data-title="reg_info" data-toggle="modal" data-target="#reg_info">
+                            <span class="glyphicon glyphicon-user"></span>
+                            </button>
+                        </a>
+                        <a data-placement="top" data-toggle="tooltip" title="세미나 신청 정보">
+                            <button class="btn btn-danger btn-xs" data-title="join_info" data-toggle="modal" data-target="#join_info">
+                            <span class="glyphicon glyphicon-pencil">
+                            </span>
+                            </button>
+                        </a>
+                        </td>
+                    </tr> `);
+
+                forcnt++;
+                if( rowcnt > 10 && forcnt == 10 ) {
+                    ADM_MNG.srchList.push( trHTML );
+                    trHTML = '';
+                    forcnt = 0;
+                    rowcnt -= 10;
+                }
+
+                if( rowcnt <= 10 && forcnt == rowcnt ) {
+                    ADM_MNG.srchList.push( trHTML );
+                }
+        }
+
+        
+
+        $('#id_tbody').append( ADM_MNG.srchList[0] );    
+        ADM_MNG.pageNo = 1;
     }
 
+    ,EventListener : function() {
+        $('#li_prevPage').on('click', function() {
+            if( ADM_MNG.pageNo == 1 ) {
+                alert( '첫 페이지 입니다.' );
+                return;
+            }
+
+            ADM_MNG.pageNo -= 1;
+            $('#id_tbody').text('');
+            $('#id_tbody').append( ADM_MNG.srchList[ ADM_MNG.pageNo - 1 ] );
+            $('#a_pageNo').text( ADM_MNG.pageNo );
+        });
+
+        $('#li_nextPage').on('click', function() {
+            if( ADM_MNG.pageNo == ADM_MNG.srchList.length ) {
+                alert( '마지막 페이지 입니다.' );
+                return;
+            }
+
+            ADM_MNG.pageNo += 1;
+            $('#id_tbody').text('');
+            $('#id_tbody').append( ADM_MNG.srchList[ ADM_MNG.pageNo - 1 ] );
+            $('#a_pageNo').text( ADM_MNG.pageNo );
+        });
+    }
 };
 
 
 $( document ).ready(function() {
-    console.log( "start" );
+    
+    ADM_MNG.onSearch();
+    ADM_MNG.EventListener();
 
-    $('#test_1').on('click', function(){
-        REG_LOGIN.onCallBackForZipCd();
-    }) 
-      
-    
-      
-    
-    
-  
-       
-    
-
-    console.log("end");
 });

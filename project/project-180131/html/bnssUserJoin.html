@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>회원가입</title>
+    <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../html/import/js/jquery-3.2.1.min/jquery-3.2.1.min.js"></script>    
+    <script src="../html/import/js/bootstrap.min.js"></script>   
+</head>
+
+<body>    
+    <article class="container">
+
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>회원가입
+                    <small>세미나 신청 회원가입</small>
+                </h1>
+            </div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputEmail">ID
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="ID" id="join_userId">
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button" id="btn_idDupChk">ID 중복확인
+                                    <i class="fa fa-mail-forward spaceLeft"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>    
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputPassword">비밀번호
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="password" placeholder="비밀번호" id="join_userPw">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="password" placeholder="비밀번호 확인" id="join_userPwCnfm">
+                        <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputEmail">이메일
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input class="form-control input-check-email" type="email" placeholder="이메일" id="join_userEmail">
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button" id="btn_emailDupChk">E-Mail 중복확인
+                                    <i class="fa fa-mail-forward spaceLeft"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <input type="tel" class="form-control" placeholder="- 없이 입력해 주세요" id="join_userTelNo" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputName">이름
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" placeholder="이름" id="join_userNm">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputGender">성별
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" value="male" id="join_genderIsM"/> Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" value="female" id="join_genderIsF" /> Female
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputName">생년월일
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <input type="tel" class="form-control" placeholder="주민번호 앞 6자리 입력해 주세요" id="join_userBirth" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputChurchName">교회이름
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" placeholder="교회 이름" id="join_churchNm">
+                    </div>
+                </div>
+
+                <!-- 주소찾기 사이트
+                https://www.poesis.org/postcodify/
+                https://www.juso.go.kr/CommonPageLink.do?link=/addrlink/devAddrLinkRequestSample -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소
+                            <br> <small class="text-danger">(필수입력)</small>
+                    </label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="우편 번호" id="join_churchZipCd" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-warning" >우편번호 찾기
+                                    <i class="fa fa-mail-forward spaceLeft"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputChurchAddr1"></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="검색주소" id="join_churchSrchAddr" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="inputChurchAddr2"></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="상세주소" id="join_churchDetlAddr" />
+                    </div>
+                </div>          
+                
+                <div class="form-group">
+                    <div class="col-sm-12 text-center">
+                        <a href="#">
+                            <button class="btn btn-primary" type="submit" id="join_req">회원가입 요청
+                                <i class="fa fa-check spaceLeft"></i>
+                            </button>
+                        </a>                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+
+    <script src="../js/bnssUserJoin.js"></script>
+    
+</body>
+
+</html>

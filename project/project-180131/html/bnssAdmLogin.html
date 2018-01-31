@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>세미나 접수 - 로그인</title>
+    <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../html/import/js/jquery-3.2.1.min/jquery-3.2.1.min.js"></script>
+    <script src="../html/import/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">            
+            <div class="form-group">
+                <h2 class="form-signin-heading text-center">세미나 접수 로그인</h2>
+            </div>
+
+            <div id="loginform" class="form-horizontal" role="form">
+                <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input type="text" class="form-control" name="userId" value="" id="ipt_loginId" placeholder="ID를 입력하세요.">
+                </div>
+
+                <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </span>
+                    <input type="password" class="form-control" name="pw" id="ipt_loginPw" placeholder="비밀번호를 입력하세요.">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="help-block text-right">
+                    <a href="" id="findId">
+                        <strong>
+                            <u>ID 찾기</u>
+                    </a>
+                    </strong>
+                    <a>*</a>
+                    <a href="" id="findPw">
+                        <strong>
+                            <u>비밀번호 찾기</u>
+                    </a>
+                    </strong>
+                </div>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_login"> 로그인</button>
+            
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <div class="form-group">
+                <div class="bottom text-center">
+                    처음 오셨습니까?
+                    <a href="../html/bnssUserJoin.html">
+                        <b>회원가입</b>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <script src="../js/bnssAdmLogin.js"></script>
+</body>
+
+</html>

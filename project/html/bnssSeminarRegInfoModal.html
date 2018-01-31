@@ -9,60 +9,129 @@
     <title>bnssSeminarRegInfoModal</title>
     
     <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../html/import/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container" style="margin-top: 20px">
         <div class="col-md-6 col-md-offset-3">
 
-            <div class="panel panel-info">              
+            <div class="panel panel-warning">              
                 <div class="panel-heading">
-                    <h1 class="panel-title">사용자 ID 찾기</h1>
+                    <h1 class="panel-title">세미나 신청 정보</h1>
                 </div>
                 <h1 class="lead"></h1>
                 
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="inputName">이름</label>
+                        <label class="col-sm-3 control-label" for="inputChurchName">교회명</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" id="join_churchNm" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputEmail">신청자</label>
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>
                                 </div>
-                                <input type="text" class="form-control" name="writterNAME" id="findIdNm" >
+                                <input class="form-control" placeholder="손성현" type="text" id="join_userNm" readonly>
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-3 control-label" for="inputNumber">연락처</label>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputNumber">신청자 연락처</label>
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-phone"></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="-없이 입력해주세요" name="writterPHONE" id="findIdHpNo" 
-                                    onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;' maxlength="11">
+                                <input type="tel" class="form-control" id="userTelNo" placeholder="010-5194-9831" readonly/>
                             </div>
                         </div>
                     </div>
+                    
 
-                    <div class="form-group row">
-                        <label class="col-sm-3 control-label" for="inputEmail">E-Mail</label>
+                    <div class="form-group">
+                            <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소</label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="우편번호" id="join_churchZipCd" readonly/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-warning" disabled="disabled">우편번호 찾기
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputChurchAddr1"></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="address" placeholder="경기 성남시 분당구 판교원로 92" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputChurchAddr2"></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="address2" placeholder="순복음서울진주초대교회" readonly>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputName">Email</label>
                         <div class="col-sm-8">
                             <div class="control-group">
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-envelope"></span>
                                     </div>
-                                    <input type="email" class="form-control" name="writterNAME" id="findIdEmail" onkeydown="validationEmail()">
+                                    <input type="email" class="form-control" name="writterNAME" id="findIdEmail" placeholder="ssh891123@hanmail.net" readonly>
                                 </div>
                             </div>
-                            <div class="form-group has-error">
-                                <div class="col-sm-11">
-                                    <span class="help-block" id="emailValidation" ></span>
-                                </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputName">입금자</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" placeholder="손성현" name="depositNAME" readonly>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputName">입금하실 금액</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="50,000" name="depositAMOUNT" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputChurchName">입금일</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="입금일 입니다." name="depositDATE" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputChurchName">참석인원</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" placeholder="5명" name="attendance" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="inputChurchName">참석 명단</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" rows="10" placeholder="강원주, 손성현, 이정빈, 손성문" name="TOTALattendance" readonly></textarea>
                         </div>
                     </div>
 
@@ -70,7 +139,7 @@
                     <div class="form-group row">
                         <div class="col-sm-10">
                             <p id="findIdCnfm" class="text-center">
-                                <a href="#" class="btn btn-primary btn-block" role="button">확인</a>
+                                <a href="#" class="btn btn-warning btn-block" role="button">확인</a>
                             </p> 
                         </div>
                     </div>

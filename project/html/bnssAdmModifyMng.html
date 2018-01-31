@@ -22,26 +22,16 @@
   <div class="container-fluid">
     <div class="row">
   
-      <div id='div_leftMenu'> </div>
-  
-      <main class="col-sm-10">
-  
-        <!-- <div class="row">
-          <div class="col-sm-10">
-              <h3> 세미나 신청 내역</h3>
-          </div>
-        </div> -->  
-  
-        <!-- <div class="panel panel-success"> -->
+      <div id='div_leftMenu'> </div>  
+
+      <main class="col-sm-10">  
         <div class="panel panel-success">
           <div class="panel-heading">
-  
             <div class="form-group">
               <h2>
-                <span class="glyphicon glyphicon-list-alt"> </span> 세미나 신청 내역
+                <span class="glyphicon glyphicon-list-alt"> </span> 세미나 등록 내역
               </h2>
             </div>
-
           </div>
         </div>
 
@@ -51,23 +41,37 @@
           <div class="form-section">
             <div class="row">
               <form role="form">
-                <div class="col-md-3">
+
+                <div class="col-md-4">
                   <div class="form-group">
                     <div class="serchtile">세미나 명</div>
-                    <input type="password" class="form-control" id="inputPassword3">
+                    <input type="name" class="form-control" id="inputPassword3">
                   </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
+                    <div class="form-group">
+                      <div class="serchtile">교회명</div>
+                      <input type="name" class="form-control" id="inputPassword3">
+                    </div>
+                  </div>
+
+                <div class="col-md-3">
                   <div class="form-group">
                     <div class="serchtile">접수상태</div>
                     <select class="form-control" >
                         <option value="" disabled selected hidden>Please Choose...</option>
-                        <option value="1">승인대기</option>
+                        <option value="1">접수요청</option>
                         <option value="2">접수승인</option>
-                        <option value="3">접수보류</option>
-                        <option value="4">접수거절</option>
+                        <option value="3">접수기각</option>
                     </select>
+                  </div>
+                </div>
+                
+                <div class="col-md-2 ">
+                  <div class="form-group">
+                    <div class="serchtile">접수번호</div>
+                    <input type="name" class="form-control" id="inputPassword3">
                   </div>
                 </div>
 
@@ -85,7 +89,21 @@
                   </div>
                 </div>
 
-                <div class="col col-md-2">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <div class="serchtile">입금액</div>
+                    <input type="name" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <div class="serchtile">참석인원</div>
+                    <input type="name" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+
+                <div class="col col-md-3 col-md-offset-1">
                   <br>
                   <a id="" class="btn btn-primary pull-left btn-block">Search</a>
                 </div>
@@ -152,57 +170,23 @@
           </table>
 
           <div class="panel-footer">
-            <div class="row">
-              <div class="col col-sm-4">
-                <p class="lead">Page 1 of 5</p>
-              </div>
-              <div class="col col-sm-8">
-                <ul class="pagination hidden-xs pull-right">
-                  <li>
-                    <a href="#">
-                      <span class="glyphicon glyphicon-backward"></span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">1</a>
-                  </li>
-                  <li>
-                    <a href="#">2</a>
-                  </li>
-                  <li>
-                    <a href="#">3</a>
-                  </li>
-                  <li>
-                    <a href="#">4</a>
-                  </li>
-                  <li>
-                    <a href="#">5</a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="glyphicon glyphicon-forward"></span>
-                    </a>
-                  </li>
-                </ul>
+              <div class="row">
+                <div class="col col-sm-4">
+                    <!-- <p class="lead">Page 1 of 5</p> -->
+                </div>
+                <div class="col col-sm-8">
+                  <ul class="pagination hidden-xs pull-right">                    
+                    <li id='li_prevPage'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                    <li id='li_pageNo'><a id='a_pageNo' href="#">1</a></li>                    
+                    <li id='li_nextPage'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>                    
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+
         </div>
       </main>
 
-      <div class="col col-sm-1">
-        <a id="add_row2" class="btn btn-primary pull-left">신청 내역 검색</a>
-      </div>
     </div>
   </div>
 

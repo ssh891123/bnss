@@ -7,16 +7,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin Manager 세미나 접수 관리</title>
+  <title>세미나 접수 관리</title>
 
-  <!-- Bootstrap core CSS -->
   <link href="../html/import/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
   <link href="../html/import/css/dashboard.css" rel="stylesheet">
 </head>
-<!-- 반응형 디자인 괜찮은거
-http://issues.wenzhixin.net.cn/bootstrap-table/ -->
+
 <body>
   <div id='div_topMenu'> </div>
 
@@ -34,13 +30,10 @@ http://issues.wenzhixin.net.cn/bootstrap-table/ -->
                 </p>
             </div>
 
-            <div class="col col-sm-3">
-                
+            <div class="col col-sm-3">                
               <a id="add_row" class="btn btn-primary pull-left">신청 내역 검색</a>
-              <a id="add_row" class="btn btn-info pull-left">신청 내역 검색</a>
-              <!-- <a id='delete_row' class="pull-right btn btn-default">Delete Row</a> -->
+              <a id="add_row" class="btn btn-info pull-left">접수 상태 저장</a>
             </div>
-
 
             <div class="col col-sm-6 text-right">
               <div class="pull-right">
@@ -83,55 +76,21 @@ http://issues.wenzhixin.net.cn/bootstrap-table/ -->
               </tr>
             </thead>
             
-            <tbody>
-              <tr id='addr0'>
-                <td><p>1</p></td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-                <td>sit</td>
-                <td>sit</td>
-                <td data-name="sel">
-                  <select name="sel0" style="padding-bottom:2px">
-                    <option value "1" id="btn-offline">접수요청</option>
-                    <option value "2" id="btn-online">접수승인</option>
-                    <option value "3" id="btn-out-of-order">접수기각</option>
-                  </select>
-                </td>
-                <td>
-                  <a data-placement="top" data-toggle="tooltip" title="가입자 정보">
-                    <button class="btn btn-primary btn-xs" data-title="reg_info" data-toggle="modal" data-target="#reg_info">
-                      <span class="glyphicon glyphicon-user"></span>
-                    </button>
-                  </a>
-                  <a data-placement="top" data-toggle="tooltip" title="세미나 신청 정보">
-                    <button class="btn btn-danger btn-xs" data-title="join_info" data-toggle="modal" data-target="#join_info">
-                      <span class="glyphicon glyphicon-pencil">
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
+            <tbody id='id_tbody'>
+              
             </tbody>
           </table>
 
           <div class="panel-footer">
               <div class="row">
                 <div class="col col-sm-4">
-                    <p class="lead">Page 1 of 5</p>
+                    <!-- <p class="lead">Page 1 of 5</p> -->
                 </div>
                 <div class="col col-sm-8">
-                  <ul class="pagination hidden-xs pull-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-backward"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-forward"></span></a></li>
+                  <ul class="pagination hidden-xs pull-right">                    
+                    <li id='li_prevPage'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                    <li id='li_pageNo'><a id='a_pageNo' href="#">1</a></li>                    
+                    <li id='li_nextPage'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>                    
                   </ul>
                 </div>
               </div>
@@ -140,254 +99,13 @@ http://issues.wenzhixin.net.cn/bootstrap-table/ -->
       </main>
     </div>
   </div>
-
-  <div class="modal fade" id="reg_info" tabindex="-1" role="dialog" aria-labelledby="reg_info" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
-          <h4 class="modal-title custom_align" id="Heading">신청자 가입 정보</h4>
-        </div>
-        <div class="modal-body">
-          <form class="form-horizontal">
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputEmail">ID</label>
-              <div class="col-sm-8">
-                <input class="form-control" type="text" placeholder="ID" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
-              <div class="col-sm-8">
-                <input class="form-control" id="inputEmail" type="email" placeholder="이메일">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
-              <div class="col-sm-8">
-                <input type="tel" class="form-control" id="inputNumber" placeholder="- 없이 입력해 주세요" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputName">이름</label>
-              <div class="col-sm-8">
-                <input class="form-control" id="inputName" type="text" placeholder="이름">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputGender">성별</label>
-              <div class="col-sm-8">
-                <label class="radio-inline">
-                  <input type="radio" name="sex" id="inlineCheckbox1" value="male" /> Male
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="sex" id="inlineCheckbox2" value="female" /> Female
-                </label>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputName">생년월일</label>
-              <div class="col-sm-8">
-                <input type="tel" class="form-control" id="inputNumber" placeholder="주민번호 앞 6자리 입력해 주세요" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchName">교회이름</label>
-              <div class="col-sm-8">
-                <input class="form-control" id="inputChurchName" type="text" placeholder="교회 이름">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소</label>
-              <div class="col-sm-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" id="sample6_postcode" placeholder="우편 번호" />
-                  <span class="input-group-btn">
-                    <button id="zipcode" class="btn btn-success">우편번호 찾기
-                      <i class="fa fa-mail-forward spaceLeft"></i>
-                    </button>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchAddr1"></label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" id="sample6_address" placeholder="검색주소" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchAddr2"></label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" id="sample6_address2" placeholder="상세주소" />
-              </div>
-            </div>
-          </form>
-
-        </div>
-
-        <div class="modal-footer ">
-          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;">
-            <span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-        </div>
-      </div>
-
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
-
-
-  <div class="modal fade" id="join_info" tabindex="-1" role="dialog" aria-labelledby="join_info" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
-          <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-        </div>
-        <div class="modal-body">
-
-          <!-- <div class="alert alert-danger">
-          <span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?
-        </div> -->
-          <form class="form-horizontal">
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputEmail">교회명</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="서울진주초대교회" name="churchNAME" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputEmail">작성자</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="손성현" name="writterNAME" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputNumber">작성자 연락처</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="010-5194-9831" name="writterPHONE" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchAddr">교회주소</label>
-              <div class="col-sm-8">
-                <div class="input-group">
-                  <input type="text" class="form-control" id="postcode" placeholder="13468" readonly>
-                  <!-- <span class="input-group-btn">
-                      <button id="zipcode" class="btn btn-success">우편번호 찾기
-                        <i class="fa fa-mail-forward spaceLeft"></i>
-                      </button>
-                    </span> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchAddr1"></label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" id="address" placeholder="경기 성남시 분당구 판교원로 92" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchAddr2"></label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" id="address2" placeholder="순복음서울진주초대교회" readonly>
-              </div>
-            </div>
-
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputName">Email</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="ssh891123@hanmail.net" name="eMAIL" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputName">입금자</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="손성현" name="depositNAME" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputName">입금하실 금액</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="50,000" name="depositAMOUNT" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchName">입금일</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="입금일 입니다." name="depositDATE" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchName">참석인원</label>
-              <div class="col-sm-8">
-                <input type="number" class="form-control" placeholder="5명" name="attendance" readonly>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label" for="inputChurchName">참석 명단</label>
-              <div class="col-sm-8">
-                  <textarea class="form-control" rows="10" placeholder="강원주, 손성현, 이정빈, 손성문" name="TOTALattendance" readonly></textarea>
-              </div>
-            </div>
-
-          </form>
-
-        </div>
-        <div class="modal-footer ">i88
-          <button type="button" class="btn btn-success">
-            <span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-            <span class="glyphicon glyphicon-remove"></span> No</button>
-        </div>
-      </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
-  
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-    crossorigin="anonymous"></script>
-  <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-    crossorigin="anonymous"></script>
-  <script src="../html/import/js/bootstrap.min.js"></script>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+ 
   <script src="../html/import/js/ie10-viewport-bug-workaround.js"></script>
   <script src="../html/import/js/jquery-3.2.1.min/jquery-3.2.1.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="../js/common/bnssTopMenu.js"></script>
   <script src="../js/common/bnssLeftMenu.js"></script>
   <script src="../js/common/bnssGridSrch.js"></script>
-  <script src="table_add.js"></script>
+  <script src="../js/bnssAdmMng.js"></script>
 </body>
 
 </html>
