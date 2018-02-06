@@ -42,61 +42,63 @@
 
                 <div class="col-md-4">
                   <div class="form-group">
-                    <div class="serchtile">세미나 명</div>
+                    <div class="">세미나 명</div>
                     <input type="name" class="form-control" id="inputPassword3">
                   </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-group">
-                      <div class="serchtile">교회명</div>
+                      <div class="">교회명</div>
                       <input type="name" class="form-control" id="inputPassword3">
                     </div>
                   </div>
 
                 <div class="col-md-3">
                   <div class="form-group">
-                    <div class="serchtile">검색주기</div>
+                    <div class="">검색주기</div>
                     <select class="form-control" >
                         <option value="" disabled selected hidden>Please Choose...</option>
-                        <option value="1">접수요청</option>
-                        <option value="2">접수승인</option>
-                        <option value="3">접수기각</option>
+                        <option value="1">전체</option>
+                        <option value="2">3개월</option>
+                        <option value="3">6개월</option>
+                        <option value="3">1년</option>
+                        <option value="3">3년</option>
                     </select>
                   </div>
                 </div>
                 
                 <div class="col-md-2 ">
                   <div class="form-group">
-                    <div class="serchtile">접수번호</div>
+                    <div class="">접수번호</div>
                     <input type="name" class="form-control" id="inputPassword3">
                   </div>
                 </div>
 
                 <div class="col-md-2">
                   <div class="form-group">
-                    <div class="serchtile">신청자</div>
+                    <div class="">신청자</div>
                     <input type="name" class="form-control" id="inputPassword3">
                   </div>
                 </div>
 
                 <div class="col-md-2">
                   <div class="form-group">
-                    <div class="serchtile">입금자</div>
+                    <div class="">입금자</div>
                     <input type="name" class="form-control" id="inputPassword3">
                   </div>
                 </div>
 
                 <div class="col-md-2">
                   <div class="form-group">
-                    <div class="serchtile">입금액</div>
+                    <div class="">입금액</div>
                     <input type="name" class="form-control" id="inputPassword3">
                   </div>
                 </div>
 
                 <div class="col-md-2">
                   <div class="form-group">
-                    <div class="serchtile">참석인원</div>
+                    <div class="">참석인원</div>
                     <input type="name" class="form-control" id="inputPassword3">
                   </div>
                 </div>
@@ -143,6 +145,7 @@
                 <td>
                   <p class="text-center">1</p>
                 </td>
+
                 <td data-name="sel">
                   <select name="sel0" style="padding-bottom:2px">
                     <option value "1" id="btn-offline">접수요청</option>
@@ -150,6 +153,7 @@
                     <option value "3" id="btn-out-of-order">접수기각</option>
                   </select>
                 </td>
+                
                 <td>
                   <a data-placement="top" data-toggle="tooltip" title="가입자 정보">
                     <button class="btn btn-primary btn-xs" data-title="reg_info" data-toggle="modal" data-target="#reg_info">
@@ -294,7 +298,6 @@
     
   </div>
 
-
   <div class="modal fade" id="join_info" tabindex="-1" role="dialog" aria-labelledby="join_info" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -402,7 +405,7 @@
           </form>
 
         </div>
-        <div class="modal-footer ">i88
+        <div class="modal-footer ">
           <button type="button" class="btn btn-success">
             <span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -414,23 +417,12 @@
     <!-- /.modal-dialog -->
   </div>
 
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-    crossorigin="anonymous"></script>
-  <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-    crossorigin="anonymous"></script>
-  <script src="import/js/bootstrap.min.js"></script>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="import/js/ie10-viewport-bug-workaround.js"></script>
-  <script src="import/js/jquery-3.2.1.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="../html/import/js/ie10-viewport-bug-workaround.js"></script>
+  <script src="../html/import/js/jquery-3.2.1.min/jquery-3.2.1.min.js"></script>
   <script src="../js/common/bnssTopMenu.js"></script>
   <script src="../js/common/bnssLeftMenu.js"></script>
   <script src="../js/common/bnssGridSrch.js"></script>
-  <script src="table_add.js"></script>
+  <script src="../js/bnssAdmMng.js"></script>
 </body>
 
 </html>
